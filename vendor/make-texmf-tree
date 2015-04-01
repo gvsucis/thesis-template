@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+
+readonly TEMP_DIR="$(mktemp --directory -t thesis-template.XXXXXXXXXX)"
+
+mk () {
+	mkdir -p "$1"
+	cd "$1"
+}
+
+mk texmf
+readonly TEXMF_DIR="$PWD"
+
+extract () {
+	tmp_path="$TEMP_DIR/${1##*/}"
+	wget "$1" --output-document "$tmp_path"
+	if [[ ${1##*.} == zip ]]; then
+		unzip -o "$tmp_path"
+	else
+		tar -xf "$tmp_path"
+	fi
+}
+
+# TDS packages
+for tds_url in http://mirrors.ctan.org/install/fonts/newtx.tds.zip \
+	http://mirrors.ctan.org/install/macros/latex/contrib/ifplatform.tds.zip \
+	http://mirrors.ctan.org/install/macros/latex/contrib/lineno.tds.zip \
+	http://sourceforge.net/projects/biblatex/files/biblatex-2.9/biblatex-2.9a.tds.tgz \
+	http://mirrors.ctan.org/install/macros/latex/contrib/logreq.tds.zip; do
+	extract "$tds_url"
+done
+
+# Manual installs
+# Based on http://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages#Manual_installation
+
+install --directory "$TEXMF_DIR/doc"
+install --directory "$TEXMF_DIR/tex/latex"
+
+pushd "$TEMP_DIR"
+extract http://mirrors.ctan.org/macros/latex/contrib/minted.zip
+pushd "minted"
+make
+# Don't care about minted1.sty
+install --mode=644 minted.pdf "$TEXMF_DIR/doc"
+install -d "$TEXMF_DIR/tex/latex/minted"
+install --mode=644 minted.sty "$TEXMF_DIR/tex/latex/minted"
+
+popd # minted
+popd # "$TEMP_DIR"

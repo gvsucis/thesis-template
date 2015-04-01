@@ -16,10 +16,17 @@ tex.re_tex = re.compile(r'\\(?P<type>usepackage|RequirePackage|include|bibliogra
 # Add more file extensions for which to search.
 tex.exts_deps_tex += ['.jpg', '.txt']
 
+def _set_texmf(ctx):
+    # Override TEXMFHOME so that our vendored packages can be found. Probably
+    # not the cleanest way to do this.
+    os.environ['TEXMFHOME'] = ctx.path.find_dir(['vendor', 'texmf']).abspath()
+
 def options(ctx):
     ctx.load('biber') # Replaces inclusion of tex tool
 
 def configure(ctx):
+    _set_texmf(ctx)
+
     # Override biber.
     ctx.find_program(
         'biber',
@@ -34,15 +41,14 @@ def configure(ctx):
     # pygmentize is found by minted on the PATH, so it would be misleading to
     # include it here (minted always uses whatever is on the PATH).
     ctx.env.append_value('XELATEXFLAGS', '-shell-escape') # For minted
-    # Add directory to the TeX search path so that our vendored minted package
-    # can be found.
-    ctx.env.TEXINPUTS = ctx.path.find_dir(['vendor', 'minted']).abspath()
 
 class OpenContext(waflib.Build.BuildContext):
     """opens the resume PDF"""
     cmd = 'open'
 
 def build(ctx):
+    _set_texmf(ctx)
+
     tex_node = ctx.path.find_resource('thesis.tex')
     pdf_node = tex_node.change_ext('.pdf')
     ctx(features='tex',
