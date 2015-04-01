@@ -1,0 +1,10 @@
+Vendor Directory
+================
+
+This directory is for LaTeX packages that we are using that are not present or up-to-date in the full TeXLive installation on EOS. The full TeXLive installation was installed with:
+
+    yum install texlive-*
+
+In general, we put the generated files in here.
+
+An updated version of minted is included to get support for kpsewhich, which really helps with Waf.
