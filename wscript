@@ -3,6 +3,7 @@
 # Waf build file
 # https://code.google.com/p/waf/
 
+import os
 import re
 
 import waflib
@@ -19,7 +20,16 @@ def options(ctx):
     ctx.load('biber') # Replaces inclusion of tex tool
 
 def configure(ctx):
-    ctx.load('biber') # Replaces inclusion of tex tool
+    # Override biber.
+    ctx.find_program(
+        'biber',
+        # Find biber on the PATH if possible, but fallback to our GNU/Linux
+        # x86_64 executable if not found.
+        path_list=(ctx.environ.get('PATH', '').split(os.pathsep) +
+                   [ctx.path.find_dir('vendor').abspath()]))
+    # Include the biber tool. This replaces inclusion of tex tool. It will find
+    # biber twice, but... oh well.
+    ctx.load('biber')
     ctx.load('open', tooldir='waf-tools')
     # pygmentize is found by minted on the PATH, so it would be misleading to
     # include it here (minted always uses whatever is on the PATH).
