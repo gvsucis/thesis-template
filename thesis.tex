@@ -24,7 +24,9 @@
 
 % Enable kpsewhich, which causes minted to look on TEXINPUTS for input files. This really helps with Waf, because that's how Waf runs LaTeX.
 % See https://github.com/gpoore/minted/issues/25
-\usepackage[kpsewhich=true]{minted}
+%
+% XXX TODO: Unfortunately, using kpsewhich breaks caching, which is on by default, causing builds to fail. We've turned it off until we can pinpoint the issue.
+\usepackage[kpsewhich=true,cache=false]{minted}
 \newmint{scheme}{}
 
 \usepackage{microtype}
