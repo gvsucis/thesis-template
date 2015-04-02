@@ -49,3 +49,6 @@ install --mode=644 minted.sty "$TEXMF_DIR/tex/latex/minted"
 
 popd # minted
 popd # "$TEMP_DIR"
+
+# Create a hash file (ls-R) for faster file access.
+texhash "$TEXMF_DIR"
