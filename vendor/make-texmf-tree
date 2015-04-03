@@ -62,5 +62,7 @@ popd # minted
 
 popd # "$TEMP_DIR"
 
+rm -r "$TEMP_DIR"
+
 # Create a hash file (ls-R) for faster file access.
 texhash "$TEXMF_DIR"
