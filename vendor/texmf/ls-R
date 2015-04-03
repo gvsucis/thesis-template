@@ -7,6 +7,7 @@ fonts
 ls-R
 source
 tex
+web2c
 
 ./bibtex:
 bib
@@ -1057,3 +1058,6 @@ untxsyc.fd
 untxsym.fd
 untxtt.fd
 uzmnmia.fd
+
+./web2c:
+updmap.cfg
