@@ -32,11 +32,14 @@ extract () {
 }
 
 # TDS packages
-for tds_url in http://mirrors.ctan.org/install/fonts/newtx.tds.zip \
+# ifplatform and lineno are minted dependencies.
+# logreq is a biblatex dependency.
+for tds_url in \
 	http://mirrors.ctan.org/install/macros/latex/contrib/ifplatform.tds.zip \
 	http://mirrors.ctan.org/install/macros/latex/contrib/lineno.tds.zip \
 	http://sourceforge.net/projects/biblatex/files/biblatex-2.9/biblatex-2.9a.tds.tgz \
-	http://mirrors.ctan.org/install/macros/latex/contrib/logreq.tds.zip; do
+	http://mirrors.ctan.org/install/macros/latex/contrib/logreq.tds.zip \
+	; do
 	extract "$tds_url"
 done
 
@@ -56,14 +59,6 @@ installd "$TEXMF_DIR/tex/latex/minted"
 installf minted.sty "$TEXMF_DIR/tex/latex/minted"
 
 popd # minted
-
-# Based on the instructions in the README
-extract http://mirrors.ctan.org/macros/latex/contrib/fontaxes.zip
-pushd fontaxes
-latex fontaxes.ins
-installd "$TEXMF_DIR"/{doc,tex}/latex/fontaxes
-installf fontaxes.pdf test-fontaxes.tex "$TEXMF_DIR/doc/latex/fontaxes"
-installf fontaxes.sty "$TEXMF_DIR/tex/latex/fontaxes"
 
 popd # "$TEMP_DIR"
 
