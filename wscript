@@ -40,6 +40,10 @@ def configure(ctx):
     # Include the biber tool. This replaces inclusion of tex tool. It will find
     # biber twice, but... oh well.
     ctx.load('biber')
+    # LuaLaTeX is preferred, but our LuaLaTeX installation is broken on
+    # EOS.
+    if not ctx.env.XELATEX:
+        ctx.fatal("Could not find required program 'xelatex'")
     ctx.load('open', tooldir='waf-tools')
     ctx.find_program(
         'pygmentize',
@@ -72,8 +76,6 @@ def build(ctx):
     tex_node = ctx.path.find_resource('thesis.tex')
     pdf_node = tex_node.change_ext('.pdf')
     ctx(features='tex',
-        # LuaLaTeX is preferred, but our LuaLaTeX installation is broken on
-        # EOS.
         type='xelatex',
         source=tex_node,
         outs='pdf',
