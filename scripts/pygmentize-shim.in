@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+PYGMENTIZE = @PYGMENTIZE@
+
+os.execv(PYGMENTIZE, [PYGMENTIZE] + sys.argv[1:])

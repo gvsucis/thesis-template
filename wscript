@@ -5,6 +5,8 @@
 
 import os
 import re
+import site
+from os.path import join
 
 import waflib
 from waflib.Tools import tex
@@ -27,19 +29,21 @@ def options(ctx):
 def configure(ctx):
     _set_texmf(ctx)
 
+    orig_path_list = ctx.environ.get('PATH', '').split(os.pathsep)
+
     # Override biber.
     ctx.find_program(
         'biber',
         # Find biber on the PATH if possible, but fallback to our GNU/Linux
         # x86_64 executable if not found.
-        path_list=(ctx.environ.get('PATH', '').split(os.pathsep) +
-                   [ctx.path.find_dir('vendor').abspath()]))
+        path_list=orig_path_list + [ctx.path.find_dir('vendor').abspath()])
     # Include the biber tool. This replaces inclusion of tex tool. It will find
     # biber twice, but... oh well.
     ctx.load('biber')
     ctx.load('open', tooldir='waf-tools')
-    # pygmentize is found by minted on the PATH, so it would be misleading to
-    # include it here (minted always uses whatever is on the PATH).
+    ctx.find_program(
+        'pygmentize',
+        path_list=orig_path_list + [join(site.getuserbase(), 'bin')])
     ctx.env.append_value('XELATEXFLAGS', '-shell-escape') # For minted
 
 class OpenContext(waflib.Build.BuildContext):
@@ -49,6 +53,22 @@ class OpenContext(waflib.Build.BuildContext):
 def build(ctx):
     _set_texmf(ctx)
 
+    shim_dir_name = 'pygmentize-shim'
+    shim_dir = ctx.bldnode.find_or_declare(shim_dir_name)
+    shim_dir.mkdir()
+    shim_out_node = shim_dir.find_or_declare('pygmentize')
+
+    ctx(features='subst',
+        source='scripts/pygmentize-shim.in',
+        target=shim_out_node,
+        PYGMENTIZE=repr(ctx.env.PYGMENTIZE[0]),
+        chmod=waflib.Utils.O755,
+    )
+
+    # TODO: Is this the best way to change the PATH for the tex task?
+    os.environ['PATH'] = shim_dir.abspath() + os.pathsep + os.environ.get(
+        'PATH', '')
+
     tex_node = ctx.path.find_resource('thesis.tex')
     pdf_node = tex_node.change_ext('.pdf')
     ctx(features='tex',
@@ -56,7 +76,9 @@ def build(ctx):
         # EOS.
         type='xelatex',
         source=tex_node,
-        outs='pdf')
+        outs='pdf',
+        # Since the PDF is built using the shim, it must depend on the shim.
+        deps=[shim_out_node])
 
     if ctx.cmd == 'open':
         def _open(ctx):

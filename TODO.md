@@ -6,7 +6,6 @@ Todo for the Thesis Template
 - Make sure formatting is correct.
 - Make sure distribution task is working properly.
 - Make xelatex a mandatory tool.
-- Hard-code detection of `pygmentize` in `~/.local/bin` (also see minted/Pygments todo).
 - Split into multi-file document if possible. Check out subfiles.
 - Improve usage instructions.
 - Improve maintenance instructions.
@@ -21,4 +20,4 @@ Todo for the Thesis Template
 - Drop READMEs in every directory.
 - pylint/flake8 for Python files.
 - Use lualatex when the installation on EOS is fixed.
-- When minted supports specification of a path to `pygmentize`, find it in Waf's configure and substitute it into a TeX file. While the `pygmentize` path hasn't been a problem in the past, it's nice to guarantee stable rebuilds and play well with Waf's model.
+- When minted supports specification of a path to `pygmentize`, substitute this into an included TeX file instead of generating the shim like we are now.
