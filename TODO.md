@@ -1,8 +1,6 @@
 Todo for the Thesis Template
 ============================
 
-- Fix underscores in example PDF files.
-- Remove warnings about tagged PDFs (export minimal from Word or use qpdf).
 - Make sure formatting is correct.
 - Make sure distribution task is working properly.
 - Make xelatex a mandatory tool.
@@ -21,5 +19,7 @@ Todo for the Thesis Template
 - pylint/flake8 for Python files.
 - Add missing PDF TOC entries (for example Scholarworks agreement, etc.).
 - Mention that imported pages will not have page numbers.
+- Add note about not using underscores and unticking "Document structure tags for accessibility".
+- Fix weird-looking tabs in approval form.
 - Use lualatex when the installation on EOS is fixed.
 - When minted supports specification of a path to `pygmentize`, substitute this into an included TeX file instead of generating the shim like we are now.
