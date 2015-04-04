@@ -19,5 +19,7 @@ Todo for the Thesis Template
 - xdg-open hangs Waf when run (also fix in mEOS).
 - Drop READMEs in every directory.
 - pylint/flake8 for Python files.
+- Add missing PDF TOC entries (for example Scholarworks agreement, etc.).
+- Mention that imported pages will not have page numbers.
 - Use lualatex when the installation on EOS is fixed.
 - When minted supports specification of a path to `pygmentize`, substitute this into an included TeX file instead of generating the shim like we are now.
