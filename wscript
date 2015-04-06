@@ -5,6 +5,7 @@
 
 import os
 import re
+import sys
 import site
 from os.path import join
 
@@ -60,17 +61,20 @@ def build(ctx):
     shim_dir_name = 'pygmentize-shim'
     shim_dir = ctx.bldnode.find_or_declare(shim_dir_name)
     shim_dir.mkdir()
+    shim_dir_path = shim_dir.abspath()
     shim_out_node = shim_dir.find_or_declare('pygmentize')
 
     ctx(features='subst',
         source='scripts/pygmentize-shim.in',
         target=shim_out_node,
         PYGMENTIZE=repr(ctx.env.PYGMENTIZE[0]),
+        ADDED_PATH=repr(shim_dir_path),
+        PYTHON=sys.executable,
         chmod=waflib.Utils.O755,
     )
 
     # TODO: Is this the best way to change the PATH for the tex task?
-    os.environ['PATH'] = shim_dir.abspath() + os.pathsep + os.environ.get(
+    os.environ['PATH'] = shim_dir_path + os.pathsep + os.environ.get(
         'PATH', '')
 
     tex_node = ctx.path.find_resource('thesis.tex')
