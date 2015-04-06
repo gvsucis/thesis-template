@@ -25,7 +25,11 @@ def open_file(self, node):
     """Open a node in operating system's associated program."""
     path = node.abspath()
     if self.env.OPEN:
-        self.exec_command(self.env.OPEN + [path])
+        self.exec_command(
+            self.env.OPEN + [path],
+            # Don't buffer the program's output. On GNU/Linux, buffering
+            # xdg-open's output causes it to block the Waf process.
+            stdout=None, stderr=None)
     elif SYSTEM == 'Windows':
         os.startfile(path) # pylint: disable=no-member
     else:

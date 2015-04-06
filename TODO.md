@@ -13,7 +13,6 @@ Todo for the Thesis Template
 - Add suggestion to alias Waf.
 - Add LaTeX links (Wikibook, etc.).
 - Add Git links (try.github.io, book).
-- xdg-open hangs Waf when run (also fix in mEOS).
 - Drop READMEs in every directory.
 - pylint/flake8 for Python files.
 - Add missing PDF TOC entries (for example Scholarworks agreement, etc.).
