@@ -14,11 +14,13 @@ OPEN_PROG = {
     'Darwin': 'open',
 }
 
+
 def configure(ctx):
     try:
         ctx.find_program(OPEN_PROG[SYSTEM], var='OPEN', mandatory=False)
     except KeyError:
         pass
+
 
 @conf
 def open_file(self, node):
@@ -31,7 +33,7 @@ def open_file(self, node):
             # xdg-open's output causes it to block the Waf process.
             stdout=None, stderr=None)
     elif SYSTEM == 'Windows':
-        os.startfile(path) # pylint: disable=no-member
+        os.startfile(path)
     else:
         try:
             msg = "'{}' not found".format(OPEN_PROG[SYSTEM])

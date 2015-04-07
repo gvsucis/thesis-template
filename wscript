@@ -12,20 +12,25 @@ from os.path import join as _join
 import waflib
 from waflib.Tools import tex
 
+WAF_TOOLDIR = 'waf-tools'
+
 # Override the scanner to support our own case. We have added 'includepdf',
 # 'inputminted', and 'verbatiminput' to the list of commands, and modified the
 # regex to return the last {myfile} as the file (which suits includepdf).
-tex.re_tex = re.compile(r'\\(?P<type>usepackage|RequirePackage|include|bibliography([^\[\]{}]*)|putbib|includegraphics|input|import|bringin|lstinputlisting|includepdf|inputminted|verbatiminput)(\[[^\[\]]*\])?(?:{[^{}]*})*{(?P<file>[^{}]*)}', re.M)
+tex.re_tex = re.compile(r'\\(?P<type>usepackage|RequirePackage|include|bibliography([^\[\]{}]*)|putbib|includegraphics|input|import|bringin|lstinputlisting|includepdf|inputminted|verbatiminput)(\[[^\[\]]*\])?(?:{[^{}]*})*{(?P<file>[^{}]*)}', re.M)  # NOPEP8
 # Add more file extensions for which to search.
 tex.exts_deps_tex += ['.jpg', '.txt']
+
 
 def _set_texmf(ctx):
     # Override TEXMFHOME so that our vendored packages can be found. Probably
     # not the cleanest way to do this.
     os.environ['TEXMFHOME'] = ctx.path.find_dir(['vendor', 'texmf']).abspath()
 
+
 def options(ctx):
-    ctx.load('biber') # Replaces inclusion of tex tool
+    ctx.load('biber')  # Replaces inclusion of tex tool
+
 
 def configure(ctx):
     _set_texmf(ctx)
@@ -45,15 +50,18 @@ def configure(ctx):
     # EOS.
     if not ctx.env.XELATEX:
         ctx.fatal("Could not find required program 'xelatex'")
-    ctx.load('open', tooldir='waf-tools')
+    ctx.load(['open', 'log'], tooldir=WAF_TOOLDIR)
     ctx.find_program(
         'pygmentize',
         path_list=orig_path_list + [_join(site.getuserbase(), 'bin')])
-    ctx.env.append_value('XELATEXFLAGS', '-shell-escape') # For minted
+    ctx.env.append_value('XELATEXFLAGS', '-shell-escape')  # For minted
+    ctx.find_program('flake8')
+
 
 class OpenContext(waflib.Build.BuildContext):
     """opens the resume PDF"""
     cmd = 'open'
+
 
 def build(ctx):
     _set_texmf(ctx)
@@ -71,7 +79,7 @@ def build(ctx):
         ADDED_PATH=repr(shim_dir_path),
         PYTHON=sys.executable,
         chmod=waflib.Utils.O755,
-    )
+        )
 
     # TODO: Is this the best way to change the PATH for the tex task?
     os.environ['PATH'] = shim_dir_path + os.pathsep + os.environ.get(
@@ -90,3 +98,17 @@ def build(ctx):
         def _open(ctx):
             ctx.open_file(pdf_node)
         ctx.add_post_fun(_open)
+
+
+class LintContext(waflib.Build.BuildContext):
+    cmd = 'lint'
+    fun = 'lint'
+
+
+def lint(ctx):
+    """runs flake8 to check for Python style/code quality"""
+    retcode = ctx.exec_command(ctx.env.FLAKE8 + ['wscript', WAF_TOOLDIR])
+    if retcode == 0:
+        ctx.log_success('No lint errors!')
+    else:
+        ctx.log_failure('Lint errors found!')

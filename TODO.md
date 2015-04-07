@@ -14,7 +14,6 @@ Todo for the Thesis Template
 - Add LaTeX links (Wikibook, etc.).
 - Add Git links (try.github.io, book).
 - Drop READMEs in every directory.
-- pylint/flake8 for Python files.
 - Mention that imported pages will not have page numbers.
 - Add note about not using underscores and unticking "Document structure tags for accessibility".
 - Fix weird-looking tabs in approval form.
