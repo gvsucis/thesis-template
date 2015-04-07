@@ -7,7 +7,7 @@ import os
 import re
 import sys
 import site
-from os.path import join
+from os.path import _join
 
 import waflib
 from waflib.Tools import tex
@@ -48,7 +48,7 @@ def configure(ctx):
     ctx.load('open', tooldir='waf-tools')
     ctx.find_program(
         'pygmentize',
-        path_list=orig_path_list + [join(site.getuserbase(), 'bin')])
+        path_list=orig_path_list + [_join(site.getuserbase(), 'bin')])
     ctx.env.append_value('XELATEXFLAGS', '-shell-escape') # For minted
 
 class OpenContext(waflib.Build.BuildContext):
