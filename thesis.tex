@@ -1,9 +1,12 @@
-% The `abstracton' option turns on inclusion of the word `Abstract' before the abstract's text.
-\documentclass[abstracton]{scrartcl}
-
-% Use the same font as the `article' class.
+% KOMA-Script provides better replacements for a number of standard LaTeX classes, and generally improves usability and customizability. We are using its article replacement, `scrartcl', here.
+\documentclass[
+% Turn on inclusion of the word `Abstract' before the abstract's text.
+abstracton,
+% Set the size specified by the thesis guidelines.
+fontsize=12pt,
+]{scrartcl}
+% Use the same font as the `article' class. This *is* necessary, else KOMA fonts will be used by section headers, etc.
 \setkomafont{disposition}{\normalfont\bfseries}
-
 % There are a number of fonts acceptable to the guidelines. We recommend Times New Roman (well, actually, we're using a Times-like font, but close enough). We recommend it because:
 % - It is one of the better fonts in the list.
 % - The MS Word forms are formatted using Times, which is convenient because we don't need to change the fonts in the forms to match.
