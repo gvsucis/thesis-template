@@ -60,6 +60,7 @@ biblatex
 ifplatform
 lineno
 logreq
+tocbibind
 
 ./doc/latex/biblatex:
 biblatex.tex
@@ -237,6 +238,10 @@ README
 05-biblatex+biber.run.xml
 05-biblatex+biber.tex
 
+./doc/latex/tocbibind:
+README
+tocbibind.pdf
+
 
 ./source:
 latex
@@ -244,6 +249,7 @@ latex
 ./source/latex:
 ifplatform
 lineno
+tocbibind
 
 ./source/latex/ifplatform:
 ifplatform.dtx
@@ -255,6 +261,10 @@ lineno.tex
 lnosuppl.tex
 ulineno.tex
 
+./source/latex/tocbibind:
+tocbibind.dtx
+tocbibind.ins
+
 ./tex:
 latex
 
@@ -264,6 +274,7 @@ ifplatform
 lineno
 logreq
 minted
+tocbibind
 
 ./tex/latex/biblatex:
 bbx
@@ -388,3 +399,6 @@ logreq.sty
 
 ./tex/latex/minted:
 minted.sty
+
+./tex/latex/tocbibind:
+tocbibind.sty

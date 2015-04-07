@@ -39,6 +39,7 @@ for tds_url in \
 	http://mirrors.ctan.org/install/macros/latex/contrib/lineno.tds.zip \
 	http://sourceforge.net/projects/biblatex/files/biblatex-2.9/biblatex-2.9a.tds.tgz \
 	http://mirrors.ctan.org/install/macros/latex/contrib/logreq.tds.zip \
+	http://mirrors.ctan.org/install/macros/latex/contrib/tocbibind.tds.zip \
 	; do
 	extract "$tds_url"
 done

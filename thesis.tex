@@ -18,6 +18,7 @@
 \usepackage{geometry}
 
 \usepackage{pdfpages}
+% For an unnumbered entry into the ToC, we use the addsec counter. See http://tex.stackexchange.com/a/121207
 
 \usepackage{graphicx}
 % \graphicspath{...} is helpful, but it will confuse Waf and cause it not to find dependencies. Oh well, let's not use it.
@@ -39,6 +40,10 @@
 \usepackage{verbatim}
 \usepackage[backend=biber]{biblatex}
 \addbibresource{citations.bib}
+
+% Add the ToC and Bibliography to the ToC.
+\usepackage{tocbibind}
+
 \usepackage{hyperref}
 \hypersetup{hidelinks}
 
@@ -49,7 +54,7 @@
 \begin{document}
 
 \includepdf{ogs-forms/filled/titlepage.pdf}
-\includepdf{ogs-forms/filled/approval.pdf}
+\includepdf[addtotoc={1,addsec,1,Thesis Approval Form,approval-form}]{ogs-forms/filled/approval.pdf}
 
 \doublespacing
 \begin{abstract}
@@ -361,9 +366,16 @@ Writing this compiler has given us an appreciatiation of the general difficulty 
 
 \newpage
 \singlespacing
-\printbibliography{}
 
-\includepdf{ogs-forms/filled/scholarworks.pdf}
+\printbibliography[
+heading=bibintoc,
+% To number the bibliography, use the following instead of the line above:
+%heading=bibnumbered,
+% To use a name other than the default:
+%title=Bibliography,
+]
+
+\includepdf[addtotoc={1,addsec,1,ScholarWorks Submission Agreement,scholarworks-form}]{ogs-forms/filled/scholarworks.pdf}
 
 \end{document}
 

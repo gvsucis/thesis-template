@@ -15,7 +15,6 @@ Todo for the Thesis Template
 - Add Git links (try.github.io, book).
 - Drop READMEs in every directory.
 - pylint/flake8 for Python files.
-- Add missing PDF TOC entries (for example Scholarworks agreement, etc.).
 - Mention that imported pages will not have page numbers.
 - Add note about not using underscores and unticking "Document structure tags for accessibility".
 - Fix weird-looking tabs in approval form.
