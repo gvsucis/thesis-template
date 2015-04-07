@@ -47,6 +47,12 @@ fontsize=12pt,
 % Add the ToC and Bibliography to the ToC.
 \usepackage{tocbibind}
 
+% Set a ragged right edge for the whole document. An alternative is to just use `\raggedright', but ragged2e allows for some hyphenation and looks better.
+% Note: LaTeX is really good at hyphenation and full justification is the default. The defaults look great and a ragged right edge looks terrible in comparison. But the guidelines specify that no right justification may be used.
+\usepackage[document]{ragged2e}
+% Still indent paragraphs; see http://tex.stackexchange.com/a/185972
+\setlength{\RaggedRightParindent}{\parindent}
+
 \usepackage{hyperref}
 \hypersetup{hidelinks}
 
