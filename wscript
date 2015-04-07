@@ -7,7 +7,7 @@ import os
 import re
 import sys
 import site
-from os.path import _join
+from os.path import join as _join
 
 import waflib
 from waflib.Tools import tex
