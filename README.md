@@ -1,7 +1,7 @@
 Thesis Template
 ===============
 
-This is a template for a Master of Computing and Information System Thesis at Grand Valley State University.
+This is a template for a Master of Computing and Information Systems thesis at Grand Valley State University.
 
 Getting Started
 ---------------
