@@ -63,12 +63,14 @@ fontsize=12pt,
 \includepdf[addtotoc={1,addsec,1,Thesis Approval Form,approval-form}]{ogs-forms/filled/approval.pdf}
 
 \doublespacing
+% TODO: The text here is supposed to be flush left. It isn't really flush to the left margin, but we think it looks good as-is.
 \begin{abstract}
-  Functional programming presents a relatively unexplored approach to achieving high-performance computing. Typically, the field has been dominated by imperative languages such as C, C++ and Fortran. However, purely functional languages use functions without side effects, a characteristic that can prove useful when parallelizing code. The purpose of this project is to investigate the feasability of an automatic parallelizing compiler for functional programs. Paralisp uses the LLVM compiler infrastructure to transform Lisp-like source code into LLVM bytecode equipped with calls to parallel functions. The LLVM bytecode is then used to generate Intel x86 machine code that executes within multiple threads. Parallelism is clearly a critical part of today's technological environment, but presents difficult challenges to developers. Much as optimizing compilers for high-level languages have supplanted hand-written assembly, automatic parellelizing compilers optimized for specific architectures are poised to eliminate error-prone manual multiprogramming.
+Functional programming presents a relatively unexplored approach to achieving high-performance computing. Typically, the field has been dominated by imperative languages such as C, C++ and Fortran. However, purely functional languages use functions without side effects, a characteristic that can prove useful when parallelizing code. The purpose of this project is to investigate the feasability of an automatic parallelizing compiler for functional programs. Paralisp uses the LLVM compiler infrastructure to transform Lisp-like source code into LLVM bytecode equipped with calls to parallel functions. The LLVM bytecode is then used to generate Intel x86 machine code that executes within multiple threads. Parallelism is clearly a critical part of today's technological environment, but presents difficult challenges to developers. Much as optimizing compilers for high-level languages have supplanted hand-written assembly, automatic parellelizing compilers optimized for specific architectures are poised to eliminate error-prone manual multiprogramming.
 \end{abstract}
 \newpage
 
 \singlespacing
+% TODO: The LaTeX ToC doesn't really look like the one in the appendix of the guidelines. It looks much better :)
 \tableofcontents
 \newpage
 

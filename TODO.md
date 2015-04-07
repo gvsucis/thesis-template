@@ -1,7 +1,6 @@
 Todo for the Thesis Template
 ============================
 
-- Make sure formatting is correct.
 - Make sure distribution task is working properly.
 - Split into multi-file document if possible. Check out subfiles.
 - Improve usage instructions.
