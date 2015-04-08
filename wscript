@@ -29,6 +29,13 @@ def _set_texmf(ctx):
 
 
 def options(ctx):
+    binding_choices = ['pdf', 'spiral', 'hardcopy']
+    ctx.add_option(
+        '-B', '--binding', default='pdf',
+        choices=binding_choices,
+        help='set binding type ({}) [default: %default]'.format(
+            '/'.join(binding_choices)))
+
     ctx.load('biber')  # Replaces inclusion of tex tool
 
 
@@ -57,6 +64,11 @@ def configure(ctx):
     ctx.env.append_value('XELATEXFLAGS', '-shell-escape')  # For minted
     ctx.find_program('flake8')
 
+    ctx.msg('Setting binding to', ctx.options.binding)
+    ctx.env.DOCUMENT_MARGINS = (
+        'left=1.5in,right=1in,top=1in,bottom=1in'
+        if ctx.options.binding == 'hardcopy' else 'margin=1in')
+    ctx.msg('Setting document margins to', ctx.env.DOCUMENT_MARGINS)
 
 class OpenContext(waflib.Build.BuildContext):
     """opens the resume PDF"""
@@ -66,12 +78,19 @@ class OpenContext(waflib.Build.BuildContext):
 def build(ctx):
     _set_texmf(ctx)
 
+    # Build the geometry settings.
+    @ctx.rule(target='setgeometry.tex', vars=['DOCUMENT_MARGINS'])
+    def _make_geometry(tsk):
+        tsk.outputs[0].write(
+            r'\geometry{{{}}}'.format(tsk.env.DOCUMENT_MARGINS),
+            encoding='utf-8')
+
+    # Build the pygmentize shim.
     shim_dir_name = 'pygmentize-shim'
     shim_dir = ctx.bldnode.find_or_declare(shim_dir_name)
     shim_dir.mkdir()
     shim_dir_path = shim_dir.abspath()
     shim_out_node = shim_dir.find_or_declare('pygmentize')
-
     ctx(features='subst',
         source='scripts/pygmentize-shim.in',
         target=shim_out_node,
@@ -80,11 +99,11 @@ def build(ctx):
         PYTHON=sys.executable,
         chmod=waflib.Utils.O755,
         )
-
     # TODO: Is this the best way to change the PATH for the tex task?
     os.environ['PATH'] = shim_dir_path + os.pathsep + os.environ.get(
         'PATH', '')
 
+    # Build the TEX file into a PDF.
     tex_node = ctx.path.find_resource('thesis.tex')
     pdf_node = tex_node.change_ext('.pdf')
     ctx(features='tex',
@@ -94,6 +113,7 @@ def build(ctx):
         # Since the PDF is built using the shim, it must depend on the shim.
         deps=[shim_out_node])
 
+    # Open the document if that was requested.
     if ctx.cmd == 'open':
         def _open(ctx):
             ctx.open_file(pdf_node)
