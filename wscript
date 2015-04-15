@@ -69,6 +69,7 @@ def configure(ctx):
         if ctx.options.binding == 'hardcopy' else 'margin=1in')
     ctx.msg('Setting document margins to', ctx.env.DOCUMENT_MARGINS)
 
+
 class OpenContext(waflib.Build.BuildContext):
     """opens the resume PDF"""
     cmd = 'open'
