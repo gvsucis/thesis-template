@@ -43,6 +43,7 @@ def configure(ctx):
     _set_texmf(ctx)
 
     orig_path_list = ctx.environ.get('PATH', '').split(os.pathsep)
+    user_site_path_list = orig_path_list + [_join(site.getuserbase(), 'bin')]
 
     # Override biber.
     ctx.find_program(
@@ -58,11 +59,9 @@ def configure(ctx):
     if not ctx.env.XELATEX:
         ctx.fatal("Could not find required program 'xelatex'")
     ctx.load(['open', 'log'], tooldir=WAF_TOOLDIR)
-    ctx.find_program(
-        'pygmentize',
-        path_list=orig_path_list + [_join(site.getuserbase(), 'bin')])
+    ctx.find_program('pygmentize', path_list=user_site_path_list)
     ctx.env.append_value('XELATEXFLAGS', '-shell-escape')  # For minted
-    ctx.find_program('flake8')
+    ctx.find_program('flake8', path_list=user_site_path_list)
 
     ctx.msg('Setting binding to', ctx.options.binding)
     ctx.env.DOCUMENT_MARGINS = (
