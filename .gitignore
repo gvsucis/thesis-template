@@ -13,8 +13,15 @@ __pycache__/
 ## Waf lockfile
 /.lock-waf*
 
+## Dist outputs
+## Make sure these are ignored by git in some way else get_git_nodes()
+## will pick up the archive file and try to recursively add it.
+/*.tar.*
+/*.zip
+
 # pyenv version files
 .python-version
 
 # dropped by Emacs AUCTeX
 /auto/
+

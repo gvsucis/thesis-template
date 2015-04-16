@@ -12,6 +12,12 @@ from os.path import join as _join
 import waflib
 from waflib.Tools import tex
 
+# Waf variables
+top = '.'
+out = 'build'
+APPNAME = 'thesis'
+VERSION = 'dev'
+
 WAF_TOOLDIR = 'waf-tools'
 
 # Override the scanner to support our own case. We have added 'includepdf',
@@ -132,3 +138,19 @@ def lint(ctx):
         ctx.log_success('No lint errors!')
     else:
         ctx.log_failure('Lint errors found!')
+
+
+# Customize the dist command.
+
+def dist(ctx):
+    # Inheriting the configuration context borks the 'files' attribute of the
+    # context, which is used in the ConfigurationContext and the Dist context
+    # in unrelated ways. So we can't use the @conf decorator to attach our
+    # methods.
+    ctx.load('git', tooldir=WAF_TOOLDIR)
+    # The default is to create it with a basename of APPNAME-VERSION. We don't
+    # care about the version.
+    ctx.base_name = APPNAME
+    # Zip will be nicer for Windows-only users.
+    ctx.algo = 'zip'
+    ctx.files = ctx.get_git_nodes()
