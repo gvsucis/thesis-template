@@ -49,7 +49,10 @@ def configure(ctx):
     _set_texmf(ctx)
 
     orig_path_list = ctx.environ.get('PATH', '').split(os.pathsep)
-    user_site_path_list = orig_path_list + [_join(site.getuserbase(), 'bin')]
+    user_site_path_list = orig_path_list      \
+      + [_join(site.getuserbase(), 'bin')]    \
+      + [_join(site.getuserbase(), 'Python' + str(sys.version_info[0]) 
+        + str(sys.version_info[1]), 'Scripts')]
 
     # Override biber.
     ctx.find_program(
