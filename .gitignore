@@ -4,24 +4,20 @@ __pycache__/
 
 # Waf
 ## Build dir
-/build/
+build/
 ## Unpackaged waflib
 ## It's dot-hidden on Unix-like system, but on Windows it is just
 ## labelled as a hidden directory (no dot).
-/.waf*-*-*/
-/waf*-*-*/
+.waf*-*-*/
+waf*-*-*/
 ## Waf lockfile
-/.lock-waf*
+.lock-waf*
 
 ## Dist outputs
 ## Make sure these are ignored by git in some way else get_git_nodes()
 ## will pick up the archive file and try to recursively add it.
-/*.tar.*
-/*.zip
+*.tar.*
+*.zip
 
 # pyenv version files
 .python-version
-
-# dropped by Emacs AUCTeX
-/auto/
-
