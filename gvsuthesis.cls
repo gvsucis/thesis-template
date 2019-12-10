@@ -78,37 +78,39 @@ footskip=6mm] % footer skip, below text body
 
 % Font: Main font, \textnormal{}, \normalfont.
 \setmainfont
-[Path=./Fonts/tinos/,
-ItalicFont=Tinos-Italic,
-BoldFont=Tinos-Bold,
-BoldItalicFont=Tinos-BoldItalic,
+[Path=./Fonts/liberation-serif/,
+ItalicFont=LiberationSerif-Italic,
+BoldFont=LiberationSerif-Bold,
+BoldItalicFont=LiberationSerif-BoldItalic,
 Scale=1.00]
-{Tinos-Regular.ttf}
+{LiberationSerif-Regular.ttf}
 
 % Font: Roman font, \textrm{}, \rmfamily.
 \setromanfont
-[Path=./Fonts/tinos/,
-ItalicFont=Tinos-Italic,
-BoldFont=Tinos-Bold,
-BoldItalicFont=Tinos-BoldItalic,
+[Path=./Fonts/liberation-serif/,
+ItalicFont=LiberationSerif-Italic,
+BoldFont=LiberationSerif-Bold,
+BoldItalicFont=LiberationSerif-BoldItalic,
 Scale=1.00]
-{Tinos-Regular.ttf}
+{LiberationSerif-Regular.ttf}
 
 % Font: Sans-serif font, \textsf{}, \sffamily.
 \setsansfont
-[Path=./Fonts/carlito/,
-ItalicFont=Carlito-Italic,
-BoldFont=Carlito-Bold,
-BoldItalicFont=Carlito-BoldItalic,
-Scale=0.95]
-{Carlito-Regular.ttf}
+[Path=./Fonts/liberation-sans/,
+ItalicFont=LiberationSans-Italic,
+BoldFont=LiberationSans-Bold,
+BoldItalicFont=LiberationSans-BoldItalic,
+Scale=1.00]
+{LiberationSans-Regular.ttf}
 
 % Font: Monospace font, \texttt{}, \ttfamily.
 \setmonofont
-[Path=./Fonts/mplus/,
-BoldFont=mplus-1m-bold,
+[Path=./Fonts/liberation-mono/,
+ItalicFont=LiberationMono-Italic,
+BoldFont=LiberationMono-Bold,
+BoldItalicFont=LiberationMono-BoldItalic,
 Scale=0.95]
-{mplus-1m-regular.ttf}
+{LiberationMono-Regular.ttf}
 
 % Symbols.
 \RequirePackage{textcomp} % For symbols.
