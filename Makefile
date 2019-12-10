@@ -2,6 +2,7 @@ DOCNAME := Thesis
 OUTDIR := build
 
 SOURCES := $(wildcard *.tex) $(wildcard *.bib) gvsuthesis.cls
+LATEX_OPTS := -xelatex -bibtex -outdir=$(OUTDIR) -halt-on-error -file-line-error
 
 .PHONY: all
 .PHONY: clean
@@ -9,7 +10,7 @@ SOURCES := $(wildcard *.tex) $(wildcard *.bib) gvsuthesis.cls
 all: $(OUTDIR)/$(DOCNAME).pdf
 
 $(OUTDIR)/$(DOCNAME).pdf: $(SOURCES)
-	latexmk -halt-on-error -xelatex -outdir=$(OUTDIR) $(DOCNAME).tex
+	latexmk $(LATEX_OPTS) $(DOCNAME)
 
 clean:
 	rm -rf $(OUTDIR)
