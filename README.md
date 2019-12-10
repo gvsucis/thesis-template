@@ -9,10 +9,15 @@ website for the most up to date version of this information.
 
 ## Examples and Credit
 
-This template is based loosely on [this one](https://github.com/gvsucis/thesis-template) designed to
+This template is forked from [this one](https://github.com/gvsucis/thesis-template) designed to
 build in the EOS Linux environment by [Sean Fisk](https://github.com/seanfisk). [Eric
 Domke](https://github.com/erdomke) ported it to Windows
 [here](https://github.com/erdomke/thesis-template).
+
+This template is adapted from [Zach Scrivena](https://github.com/zachscrivena)'s
+[Simple-Thesis-Dissertation](https://github.com/zachscrivena/simple-thesis-dissertation) and
+modified for GVSU's requirements. Although the content is primarily from here, the repo is forked
+from GVSU's template for discoverability.
 
 [Kevin Kredit](https://github.com/kkredit) designed this version of the template to work on Linux or
 the Windows Subsystem for Linux. It does not officially support the EOS environment, though it may
