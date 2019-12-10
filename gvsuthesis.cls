@@ -50,6 +50,7 @@ footskip=6mm] % footer skip, below text body
 \RequirePackage{environ} % For easy definition of environments.
 \RequirePackage{rotating} % For rotating objects.
 \RequirePackage{framed} % For framed text.
+\RequirePackage{pdfpages} % Directly include PDFs
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PDF OUTPUT.

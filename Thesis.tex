@@ -61,7 +61,11 @@ bookmarksnumbered}
 
 \begin{document}
 
-\input{Thesis-FrontMatter.tex}
+\input{Thesis-TitlePage.tex}
+
+\includepdf{Forms/ThesisApproval.pdf}
+
+\input{Thesis-FrontMatter.tex} % Dedication, Acknowledgements, Preface, Abstract, TOCs, and Keys
 
 \input{Thesis-Chapter-Intro.tex}
 
@@ -69,6 +73,8 @@ bookmarksnumbered}
 
 \input{Thesis-Chapter-Summary.tex}
 
-\input{Thesis-BackMatter.tex}
+\input{Thesis-BackMatter.tex} % Bibliography and Vita
+
+\includepdf{Forms/ScholarWorksAgreement.pdf}
 
 \end{document}
