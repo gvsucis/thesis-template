@@ -11,7 +11,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{gvsuthesis}[2019/12/9 GVSU Thesis Template https://github.com/kkredit/thesis-template]
+\ProvidesClass{gvsuthesis}
 
 \DeclareOption{a4paper}{\PassOptionsToClass{\CurrentOption}{report}}
 \DeclareOption{letterpaper}{\PassOptionsToClass{\CurrentOption}{report}}
@@ -63,7 +63,7 @@ footskip=0.4in] % footer skip, below text body
 %% COLORS.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage[usenames]{color} % For colors.
+\RequirePackage{xcolor} % For colors.
 \definecolor{AccentOne}{RGB}{0,68,186} % blue
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
