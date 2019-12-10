@@ -4,15 +4,14 @@
 % vim: set fenc=utf-8
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% simplethesisdissertation.cls
-%% <https://github.com/zachscrivena/simple-thesis-dissertation>
-%% This is free and unencumbered software released into the
-%% public domain; see <http://unlicense.org> for details.
+%% gvsuthesis.cls
+%% <https://github.com/kkredit/thesis-template>
+%% Licensed under the LaTeX Project Public License v1.3c.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{simplethesisdissertation}[2016/12/25 Simple Thesis Dissertation https://github.com/zachscrivena/simple-thesis-dissertation]
+\ProvidesClass{gvsuthesis}[2019/12/9 GVSU Thesis Template https://github.com/kkredit/thesis-template]
 
 \DeclareOption{a4paper}{\PassOptionsToClass{\CurrentOption}{report}}
 \DeclareOption{letterpaper}{\PassOptionsToClass{\CurrentOption}{report}}
@@ -31,13 +30,14 @@
 
 % Geometry package for page margins.
 % A4-size (210 mm × 297 mm) single-sided pages
+% Letter-size (8.5 in × 11 in) single-sided pages
 \RequirePackage[
-left=25.4mm,
-right=25.4mm,
-top=20mm,
-bottom=16mm,
-headsep=6mm, % header separation, above text body
-footskip=6mm] % footer skip, below text body
+left=1in,
+right=1in,
+top=1in,
+bottom=1in,
+headsep=0.4in, % header separation, above text body
+footskip=0.4in] % footer skip, below text body
 {geometry}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
