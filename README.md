@@ -31,7 +31,8 @@ This template is designed to be copied into a subdirectory (perhaps as a submodu
 thesis document. To build a document using this template, first install the following packages:
 
 ```sh
-apt install texlive-latex-extra texlive-generic-extra texlive-xetex texlive-science latexmk make
+apt install texlive-latex-extra texlive-generic-extra texlive-xetex texlive-science \
+    texlive-publishers latexmk make
 ```
 
 <!-- TODO: add example directory and makefile -->
