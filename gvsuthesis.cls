@@ -131,7 +131,7 @@ Scale=0.95]
 
 \titleformat{\part}
 [display]% shape
-{\sffamily\bfseries\filcenter}% applied to label and text
+{\rmfamily\bfseries\filcenter}% applied to label and text
 {\fontsize{16}{19.2}\selectfont\color{AccentOne}PART~\thepart}% applied to the label only
 {1em}% vertical spacing between label and text
 {\fontsize{32}{38.4}\selectfont{#1}}% applied before the text
@@ -139,7 +139,7 @@ Scale=0.95]
 
 \titleformat{name=\part,numberless}
 [display]% shape
-{\sffamily\bfseries\filcenter}% applied to label and text
+{\rmfamily\bfseries\filcenter}% applied to label and text
 {\fontsize{16}{19.2}\selectfont\color{AccentOne}~}% applied to the label only
 {1em}% vertical spacing between label and text
 {\fontsize{32}{38.4}\selectfont{#1}}% applied before the text
@@ -153,7 +153,7 @@ Scale=0.95]
 
 \titleformat{\chapter}
 [display]% shape
-{\sffamily\bfseries\raggedright}% applied to label and text
+{\rmfamily\bfseries\raggedright}% applied to label and text
 {\fontsize{17.5}{21}\selectfont\color{AccentOne}CHAPTER~\thechapter}% applied to the label only
 {0em}% vertical spacing between label and text
 {\fontsize{30}{36}\selectfont{#1}}% applied before the text
@@ -161,7 +161,7 @@ Scale=0.95]
 
 \titleformat{name=\chapter,numberless}
 [display]% shape
-{\sffamily\bfseries\raggedright}% applied to label and text
+{\rmfamily\bfseries\raggedright}% applied to label and text
 {\fontsize{17.5}{21}\selectfont\color{AccentOne}~}% applied to the label only
 {0em}% vertical spacing between label and text
 {\fontsize{30}{36}\selectfont{#1}}% applied before the text
@@ -169,7 +169,7 @@ Scale=0.95]
 
 \titleformat{\section}%
 [hang]% shape
-{\fontsize{17}{20.4}\selectfont\sffamily\bfseries\raggedright}% applied to label and text
+{\fontsize{17}{20.4}\selectfont\rmfamily\bfseries\raggedright}% applied to label and text
 {\color{AccentOne}\thetitle}% applied to the label only
 {0.5em}% horizontal spacing between label and text
 {#1}% applied before the text
@@ -177,7 +177,7 @@ Scale=0.95]
 
 \titleformat{\subsection}%
 [hang]% shape
-{\fontsize{14.5}{17.4}\selectfont\sffamily\bfseries\raggedright}% applied to label and text
+{\fontsize{14.5}{17.4}\selectfont\rmfamily\bfseries\raggedright}% applied to label and text
 {\color{AccentOne}\thetitle}% applied to the label only
 {0.5em}% horizontal spacing between label and text
 {#1}% applied before the text
@@ -185,7 +185,7 @@ Scale=0.95]
 
 \titleformat{\subsubsection}%
 [hang]% shape
-{\fontsize{13}{15.6}\selectfont\sffamily\bfseries\raggedright}% applied to label and text
+{\fontsize{13}{15.6}\selectfont\rmfamily\bfseries\raggedright}% applied to label and text
 {\color{AccentOne}\thetitle}% applied to the label only
 {0.5em}% horizontal spacing between label and text
 {#1}% applied before the text
@@ -199,7 +199,7 @@ Scale=0.95]
 
 \titleformat{\paragraph}%
 [runin]% shape
-{\sffamily\bfseries}% applied to label and text
+{\rmfamily\bfseries}% applied to label and text
 {}% applied to the label only
 {0em}% horizontal spacing between label and text
 {#1.}% applied before the text
@@ -213,7 +213,7 @@ Scale=0.95]
 
 \titleformat{\subparagraph}%
 [runin]% shape
-{\sffamily\bfseries\itshape}% applied to label and text
+{\rmfamily\bfseries\itshape}% applied to label and text
 {}% applied to the label only
 {0em}% horizontal spacing between label and text
 {#1.}% applied before the text
@@ -276,7 +276,7 @@ Scale=0.95]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Header and footer font.
-\newcommand{\UseHeaderFooterFont}{\footnotesize\sffamily}
+\newcommand{\UseHeaderFooterFont}{\footnotesize\rmfamily}
 
 % Footer.
 \ifnum\TypesetInDraftMode=0
@@ -419,9 +419,9 @@ Scale=0.95]
 \ifx\@captype\@figurestring
 \vskip1em
 \fi
-\sbox\@tempboxa{{\color{AccentOne}\sffamily\bfseries\MakeUppercase{#1}\hspace{0.5em}}#2}%
+\sbox\@tempboxa{{\color{AccentOne}\rmfamily\bfseries\MakeUppercase{#1}\hspace{0.5em}}#2}%
 \ifdim\wd\@tempboxa>\hsize
-{{\color{AccentOne}\sffamily\bfseries\MakeUppercase{#1}\hspace{0.5em}}#2}%
+{{\color{AccentOne}\rmfamily\bfseries\MakeUppercase{#1}\hspace{0.5em}}#2}%
 \else
 \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
 \fi
@@ -447,13 +447,13 @@ Scale=0.95]
 
 \patchcmd{\LT@makecaption}
 {\@tempboxa{#1{#2: }#3}}
-{\@tempboxa{#1{{\color{AccentOne}\sffamily\bfseries\MakeUppercase{#2}\hspace{0.5em}}}#3}}
+{\@tempboxa{#1{{\color{AccentOne}\rmfamily\bfseries\MakeUppercase{#2}\hspace{0.5em}}}#3}}
 {}
 {}
 
 \patchcmd{\LT@makecaption}
 {#1{#2: }#3}
-{#1{{\color{AccentOne}\sffamily\bfseries\MakeUppercase{#2}\hspace{0.5em}}}#3}
+{#1{{\color{AccentOne}\rmfamily\bfseries\MakeUppercase{#2}\hspace{0.5em}}}#3}
 {}
 {}
 
@@ -510,7 +510,7 @@ Scale=0.95]
 {}% theorem head font
 {}% punctuation after theorem head
 {0.5em}% space after theorem head
-{\sffamily\bfseries{\color{AccentOne}\MakeUppercase{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (#3)}}% custom theorem head spec
+{\rmfamily\bfseries{\color{AccentOne}\MakeUppercase{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (#3)}}% custom theorem head spec
 
 \newtheoremstyle{MyDefinition}%
 {0.4em}% space above
@@ -520,7 +520,7 @@ Scale=0.95]
 {}% theorem head font
 {}% punctuation after theorem head
 {0.5em}% space after theorem head
-{\sffamily\bfseries{\color{AccentOne}\MakeUppercase{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (#3)}}% custom theorem head spec
+{\rmfamily\bfseries{\color{AccentOne}\MakeUppercase{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (#3)}}% custom theorem head spec
 
 \theoremstyle{MyPlain}
 
@@ -567,7 +567,7 @@ Scale=0.95]
 % Proof.
 \renewenvironment{proof}[1][\proofname]{%
 {\par\vskip0.4em\noindent%
-\sffamily\bfseries\itshape{#1:}%
+\rmfamily\bfseries\itshape{#1:}%
 \hspace{0.5em}}}%
 {\nopagebreak\hspace*{\fill}~\mbox{\rule[0pt]{1.3ex}{1.3ex}}\par}
 
