@@ -258,8 +258,8 @@ Scale=0.95]
 % Line spacing.
 \RequirePackage{setspace}
 %\singlespacing
-\onehalfspacing
-%\doublespacing
+%\onehalfspacing
+\doublespacing
 %\setstretch{1.40} % custom
 
 % Paragraph indentation:
