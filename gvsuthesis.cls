@@ -64,7 +64,7 @@ footskip=0.4in] % footer skip, below text body
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{xcolor} % For colors.
-\definecolor{AccentOne}{RGB}{0,68,186} % blue
+\definecolor{AccentOne}{RGB}{0,101,164} % GVSU Laker Blue
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FONTS.
