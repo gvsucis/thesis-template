@@ -51,6 +51,7 @@ footskip=0.4in] % footer skip, below text body
 \RequirePackage{rotating} % For rotating objects.
 \RequirePackage{framed} % For framed text.
 \RequirePackage{pdfpages} % Directly include PDFs
+\RequirePackage{etoolbox} % For declaration of bools.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PDF OUTPUT.
