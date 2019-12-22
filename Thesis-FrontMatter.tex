@@ -1,84 +1,94 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% COPYRIGHT PAGE.
+%%                                               DEDICATION PAGE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\pagestyle{plain}
-\setcounter{page}{2}
+% Page only present if \Dedication is non-empty.
+\ifx\Dedication\empty
+\else
+    \begingroup
 
-\begingroup
-\centering
-\setstretch{1.0}
-\null
-\vfill
-{\sffamily\textcopyright}~2016
-\\[0.5em]
-\AuthorName
-\\[0.5em]
-All Rights Reserved
-\par
-\endgroup
+    \centering
+    \textbf{Dedication}
 
-\clearpage
+    \flushleft
+    \Dedication
+
+    \endgroup
+    \clearpage
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% DEDICATION PAGE.
+%%                                               ACKNOWLEDGMENTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begingroup
-\centering
-\setstretch{1.0}
-~
-\\[1in]
-\textit{Insert dedication here}
-\par
-\endgroup
+% Page only present if \Acknowledgements is non-empty.
+\ifx\Acknowledgements\empty
+\else
+    \begingroup
 
-\clearpage
+    \centering
+    \textbf{Acknowledgments}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ACKNOWLEDGMENTS.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \flushleft
+    \Acknowledgements
 
-\chapter*{Acknowledgments}
-\addcontentsline{toc}{chapter}{Acknowledgments}
-
-{\color{red}%
-Insert thesis acknowledgments here.
-Thesis acknowledgments typically include research advisers and mentors, thesis committee members, collaborators, and funding sources.}
-
-\lipsum[1-2]
-
-\clearpage
+    \endgroup
+    \clearpage
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ABSTRACT.
+%%                                                       PREFACE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter*{Abstract}
-\addcontentsline{toc}{chapter}{Abstract}
+% Page only present if \Preface is non-empty.
+\ifx\Preface\empty
+\else
+    \begingroup
 
-{\color{red}%
-Insert thesis abstract here.
-The thesis abstract provides a concise description of the main contributions in the thesis.
-Abstracting and indexing services usually include the thesis abstract in the catalog presented to users.
-A well-written abstract could improve the chances of your work being discovered and cited by others in the research community.
-The abstract should be self-contained (avoid citations and cross references) and should contain only plain text (avoid complicated mathematical expressions).}
+    \centering
+    \textbf{Preface}
 
-\lipsum[1-6]
+    \flushleft
+    \Preface
 
-\clearpage
+    \endgroup
+    \clearpage
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TABLE OF CONTENTS (TOC), LISTS OF FIGURES, TABLES, ETC.
+%%                                                      ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Error out if \Abstract is empty.
+\ifx\Abstract\empty
+    \errmessage \Abstract must not be empty!
+\else
+    \begingroup
+
+    \centering
+    \textbf{Abstract}
+
+    \flushleft
+    \Abstract
+
+    \endgroup
+    \clearpage
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%       TABLE OF CONTENTS (TOC), LISTS OF TABLES, FIGURES, ETC.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \tableofcontents
 
-\listoffigures
+\ifHasListOfTables
+    \listoftables
+    \addcontentsline{toc}{chapter}{List of Tables}
+\fi
 
-\listoftables
+\ifHasListOfFigures
+    \listoffigures
+    \addcontentsline{toc}{chapter}{List of Figures}
+\fi
 
 \clearpage
-
-% Use Arabic numerals (1, 2, 3, etc.) for subsequent page numbers.
-\pagenumbering{arabic}
