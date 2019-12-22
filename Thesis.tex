@@ -26,6 +26,7 @@
 % Setup bools (\ifBoolName ... \fi)
 \newbool{HasListOfTables}
 \newbool{HasListOfFigures}
+\newbool{HasCurriculumVitae}
 
 % Document properties
 \def\DocumentTitle{Your Thesis Title}
@@ -37,6 +38,7 @@
 \def\Month{December}
 
 % PDF settings and properties
+\pagestyle{plain}
 \hypersetup{
 pdftitle={\DocumentTitle},
 pdfauthor={\AuthorName},
@@ -78,6 +80,7 @@ bookmarksnumbered}
 % If not using, comment out
 \booltrue{HasListOfTables}
 \booltrue{HasListOfFigures}
+\booltrue{HasCurriculumVitae}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                               ACTUAL DOCUMENT
