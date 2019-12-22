@@ -25,37 +25,43 @@ build there.
 
 <!-- TODO: add a link to my thesis as soon as it's public -->
 
+The example CV comes from Illinois's graduate school's [CV
+samples](https://grad.illinois.edu/sites/default/files/pdfs/cvsamples.pdf).
+
 ## Usage
 
 This template is designed to be copied into a subdirectory (perhaps as a submodule) from the main
-thesis document. To build a document using this template, first install the following packages:
+thesis document. To build a document using this template, first install the following packages, then
+run `make` to build the example.
 
 ```sh
 apt install texlive-latex-extra texlive-generic-extra texlive-xetex texlive-science \
     texlive-publishers latexmk make
+make
 ```
 
-<!-- TODO: add example directory and makefile -->
+When creating your own thesis, provide your own Thesis.tex, but use the template's TitlePage,
+FrontMatter, and BackMatter.
 
 ## Thesis Contents
 
-| **Page Name**                   | **Required**  | **Print page #** | **Page #** | Source   |
-| ------------------------------- | ------------- | ---------------- | ---------- | -------- |
-| Title page                      | Yes           | No               | 1          | Template |
-| Approval page                   | Yes           | No               | 2          | Form\*   |
-| Dedication page (limit 2 pages) | Optional      | Yes              | 3          | Template |
-| Acknowledgments (limit 2 pages) | Optional      | Yes              | 3 or 4     | Template |
-| Preface                         | Optional      | Yes              | (continue) | Template |
-| Abstract (limit 350 words)      | Yes           | Yes              | (continue) | Template |
-| Table of contents               | Yes           | Yes              | (continue) | Template |
-| List of tables                  | If applicable | Yes              | (continue) | Template |
-| List of figures                 | If applicable | Yes              | (continue) | Template |
-| Key to symbols or abbreviations | If applicable | Yes              | (continue) | Template |
-| Text and supplementary pages    | Yes           | Yes              | (continue) | Template |
-| Appendices                      | If applicable | Yes              | (continue) | Template |
-| Bibliography/References         | Yes           | Yes              | (continue) | Template |
-| Vita                            | Optional      | Yes              | (continue) | Template |
-| ScholarWorks@GVSU agreement     | Yes           | No               | NA         | Form\*   |
+| **Page Name**                   | **Required**  | **Print page #** | **Page #** | Source     |
+| ------------------------------- | ------------- | ---------------- | ---------- | ---------- |
+| Title page                      | Yes           | No               | 1          | Template   |
+| Approval page                   | Yes           | No               | 2          | Form\*     |
+| Dedication page (limit 2 pages) | Optional      | Yes              | 3          | Template   |
+| Acknowledgments (limit 2 pages) | Optional      | Yes              | 3 or 4     | Template   |
+| Preface                         | Optional      | Yes              | (continue) | Template   |
+| Abstract (limit 350 words)      | Yes           | Yes              | (continue) | Template   |
+| Table of contents               | Yes           | Yes              | (continue) | Template   |
+| List of tables                  | If applicable | Yes              | (continue) | Template   |
+| List of figures                 | If applicable | Yes              | (continue) | Template   |
+| Key to symbols or abbreviations | If applicable | Yes              | (continue) | Template   |
+| Text and supplementary pages    | Yes           | Yes              | (continue) | Your files |
+| Appendices                      | If applicable | Yes              | (continue) | Your files |
+| Bibliography/References         | Yes           | Yes              | (continue) | Template   |
+| Vita                            | Optional      | Yes              | (continue) | Your files |
+| ScholarWorks@GVSU agreement     | Yes           | No               | NA         | Form\*     |
 
 \*Forms are available for download as Microsoft Word documents or PDF forms at GVSU's
 [website](https://www.gvsu.edu/gs/thesis-and-dissertation-information-35.htm).
