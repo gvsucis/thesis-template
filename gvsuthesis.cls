@@ -36,8 +36,8 @@ left=1in,
 right=1in,
 top=1in,
 bottom=1in,
-headsep=0.4in, % header separation, above text body
-footskip=0.4in] % footer skip, below text body
+headsep=0.5in, % header separation, above text body
+footskip=0.5in] % footer skip, below text body
 {geometry}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -277,59 +277,30 @@ Scale=0.95]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Header and footer font.
-\newcommand{\UseHeaderFooterFont}{\footnotesize\rmfamily}
+\newcommand{\UseHeaderFooterFont}{\normalfont}
 
-% Footer.
+% Header.
 \ifnum\TypesetInDraftMode=0
-\newcommand{\FooterText}{}
+\newcommand{\HeaderText}{}
 \else
-\newcommand{\FooterText}{\null\hfill\color{red}{DRAFT}~\Timestamp\hfill\null}
+\newcommand{\HeaderText}{\null\hfill\color{red}{DRAFT}~\Timestamp\hfill\null}
 \fi
 
 % Empty style, for title page.
 \def\ps@empty{%
-\def\@oddhead{\UseHeaderFooterFont}%
-\def\@evenhead{\UseHeaderFooterFont}%
-\def\@oddfoot{\UseHeaderFooterFont\FooterText}%
-\def\@evenfoot{\UseHeaderFooterFont\FooterText}}
+\def\@oddhead{\UseHeaderFooterFont\HeaderText}%
+\def\@evenhead{\UseHeaderFooterFont\HeaderText}%
+\def\@oddfoot{\UseHeaderFooterFont}%
+\def\@evenfoot{\UseHeaderFooterFont}%
+}
 
 % Plain style, for chapter pages.
 \def\ps@plain{%
-\def\@oddhead{\UseHeaderFooterFont%
-\hfill\thepage\hfill}%
-\def\@evenhead{\UseHeaderFooterFont%
-\hfill\thepage\hfill}%
-\def\@oddfoot{\UseHeaderFooterFont\FooterText}%
-\def\@evenfoot{\UseHeaderFooterFont\FooterText}}
-
-\iffalse
-% Plain style, for chapter pages.
-\def\ps@plain{%
-\def\@oddhead{\UseHeaderFooterFont%
-\MakeUppercase{\DocumentTitle}\hfill\thepage}%
-\def\@evenhead{\UseHeaderFooterFont%
-\thepage\hfill\MakeUppercase{\DocumentTitle}}%
-\def\@oddfoot{\UseHeaderFooterFont\FooterText}%
-\def\@evenfoot{\UseHeaderFooterFont\FooterText}}
-
-% Regular style, for regular pages in numbered chapters.
-\def\ps@regular{%
-\def\@oddhead{\UseHeaderFooterFont%
-\MakeUppercase{\chaptername~\thechapter~~\Chaptername}\hfill\thepage}%
-\def\@evenhead{\UseHeaderFooterFont%
-\thepage\hfill\MakeUppercase{\DocumentTitle}}%
-\def\@oddfoot{\UseHeaderFooterFont\FooterText}%
-\def\@evenfoot{\UseHeaderFooterFont\FooterText}}
-
-% Regular style, for regular pages in unnumbered chapters.
-\def\ps@regularunnumberedchapters{%
-\def\@oddhead{\UseHeaderFooterFont%
-\MakeUppercase{\Chaptername}\hfill\thepage}%
-\def\@evenhead{\UseHeaderFooterFont%
-\thepage\hfill\MakeUppercase{\DocumentTitle}}%
-\def\@oddfoot{\UseHeaderFooterFont\FooterText}%
-\def\@evenfoot{\UseHeaderFooterFont\FooterText}}
-\fi
+\def\@oddhead{\UseHeaderFooterFont\HeaderText}%
+\def\@evenhead{\UseHeaderFooterFont\HeaderText}%
+\def\@oddfoot{\UseHeaderFooterFont\hfill\thepage\hfill}%
+\def\@evenfoot{\UseHeaderFooterFont\hfill\thepage\hfill}%
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FOOTNOTES.
