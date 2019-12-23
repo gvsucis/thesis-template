@@ -31,7 +31,11 @@
 
 % Font family.
 \newcommand{\LiberationFonts}{1}
-\DeclareOption{useotherfonts}{\renewcommand{\LiberationFonts}{0}}
+\DeclareOption{msfonts}{\renewcommand{\LiberationFonts}{0}}
+
+% Serifs or sans.
+\newcommand{\SansFonts}{0}
+\DeclareOption{sansfonts}{\renewcommand{\SansFonts}{1}}
 
 \ProcessOptions\relax
 
@@ -88,43 +92,60 @@ footskip=0.5in] % footer skip, below text body
 \RequirePackage{lmodern} % For Latin Modern fonts.
 
 \ifnum\LiberationFonts=0
-\include{Fonts.cls}
+    \setromanfont{Times New Roman}
+    \setsansfont{Arial}
+    \setmonofont{Courier New}
+    \ifnum\SansFonts=0
+        \setmainfont{Times New Roman}
+    \else
+        \setmainfont{Arial}
+    \fi
 \else
-% Font: Main font, \textnormal{}, \normalfont.
-\setmainfont
-[Path=./Fonts/liberation-serif/,
-ItalicFont=LiberationSerif-Italic,
-BoldFont=LiberationSerif-Bold,
-BoldItalicFont=LiberationSerif-BoldItalic,
-Scale=1.00]
-{LiberationSerif-Regular.ttf}
+    % Font: Roman font, \textrm{}, \rmfamily.
+    \setromanfont
+    [Path=./Fonts/liberation-serif/,
+    ItalicFont=LiberationSerif-Italic,
+    BoldFont=LiberationSerif-Bold,
+    BoldItalicFont=LiberationSerif-BoldItalic,
+    Scale=1.00]
+    {LiberationSerif-Regular.ttf}
 
-% Font: Roman font, \textrm{}, \rmfamily.
-\setromanfont
-[Path=./Fonts/liberation-serif/,
-ItalicFont=LiberationSerif-Italic,
-BoldFont=LiberationSerif-Bold,
-BoldItalicFont=LiberationSerif-BoldItalic,
-Scale=1.00]
-{LiberationSerif-Regular.ttf}
+    % Font: Sans-serif font, \textsf{}, \sffamily.
+    \setsansfont
+    [Path=./Fonts/liberation-sans/,
+    ItalicFont=LiberationSans-Italic,
+    BoldFont=LiberationSans-Bold,
+    BoldItalicFont=LiberationSans-BoldItalic,
+    Scale=1.00]
+    {LiberationSans-Regular.ttf}
 
-% Font: Sans-serif font, \textsf{}, \sffamily.
-\setsansfont
-[Path=./Fonts/liberation-sans/,
-ItalicFont=LiberationSans-Italic,
-BoldFont=LiberationSans-Bold,
-BoldItalicFont=LiberationSans-BoldItalic,
-Scale=1.00]
-{LiberationSans-Regular.ttf}
+    % Font: Monospace font, \texttt{}, \ttfamily.
+    \setmonofont
+    [Path=./Fonts/liberation-mono/,
+    ItalicFont=LiberationMono-Italic,
+    BoldFont=LiberationMono-Bold,
+    BoldItalicFont=LiberationMono-BoldItalic,
+    Scale=0.95]
+    {LiberationMono-Regular.ttf}
 
-% Font: Monospace font, \texttt{}, \ttfamily.
-\setmonofont
-[Path=./Fonts/liberation-mono/,
-ItalicFont=LiberationMono-Italic,
-BoldFont=LiberationMono-Bold,
-BoldItalicFont=LiberationMono-BoldItalic,
-Scale=0.95]
-{LiberationMono-Regular.ttf}
+    % Font: Main font, \textnormal{}, \normalfont.
+    \ifnum\SansFonts=0
+        \setmainfont
+        [Path=./Fonts/liberation-serif/,
+        ItalicFont=LiberationSerif-Italic,
+        BoldFont=LiberationSerif-Bold,
+        BoldItalicFont=LiberationSerif-BoldItalic,
+        Scale=1.00]
+        {LiberationSerif-Regular.ttf}
+    \else
+        \setmainfont
+        [Path=./Fonts/liberation-sans/,
+        ItalicFont=LiberationSans-Italic,
+        BoldFont=LiberationSans-Bold,
+        BoldItalicFont=LiberationSans-BoldItalic,
+        Scale=1.00]
+        {LiberationSans-Regular.ttf}
+    \fi
 \fi
 
 % Symbols.
@@ -146,7 +167,7 @@ Scale=0.95]
 
 \titleformat{\part}
 [display]% shape
-{\rmfamily\bfseries\filcenter}% applied to label and text
+{\normalfont\bfseries\filcenter}% applied to label and text
 {\fontsize{16}{19.2}\selectfont\color{AccentOne}PART~\thepart}% applied to the label only
 {1em}% vertical spacing between label and text
 {\fontsize{32}{38.4}\selectfont{#1}}% applied before the text
@@ -154,7 +175,7 @@ Scale=0.95]
 
 \titleformat{name=\part,numberless}
 [display]% shape
-{\rmfamily\bfseries\filcenter}% applied to label and text
+{\normalfont\bfseries\filcenter}% applied to label and text
 {\fontsize{16}{19.2}\selectfont\color{AccentOne}~}% applied to the label only
 {1em}% vertical spacing between label and text
 {\fontsize{32}{38.4}\selectfont{#1}}% applied before the text
@@ -168,7 +189,7 @@ Scale=0.95]
 
 \titleformat{\chapter}
 [display]% shape
-{\rmfamily\bfseries\raggedright}% applied to label and text
+{\normalfont\bfseries\raggedright}% applied to label and text
 {\fontsize{17.5}{21}\selectfont\color{AccentOne}CHAPTER~\thechapter}% applied to the label only
 {0em}% vertical spacing between label and text
 {\fontsize{30}{36}\selectfont{#1}}% applied before the text
@@ -176,7 +197,7 @@ Scale=0.95]
 
 \titleformat{name=\chapter,numberless}
 [display]% shape
-{\rmfamily\bfseries\raggedright}% applied to label and text
+{\normalfont\bfseries\raggedright}% applied to label and text
 {\fontsize{17.5}{21}\selectfont\color{AccentOne}~}% applied to the label only
 {0em}% vertical spacing between label and text
 {\fontsize{30}{36}\selectfont{#1}}% applied before the text
@@ -184,7 +205,7 @@ Scale=0.95]
 
 \titleformat{\section}%
 [hang]% shape
-{\fontsize{17}{20.4}\selectfont\rmfamily\bfseries\raggedright}% applied to label and text
+{\fontsize{17}{20.4}\selectfont\normalfont\bfseries\raggedright}% applied to label and text
 {\color{AccentOne}\thetitle}% applied to the label only
 {0.5em}% horizontal spacing between label and text
 {#1}% applied before the text
@@ -192,7 +213,7 @@ Scale=0.95]
 
 \titleformat{\subsection}%
 [hang]% shape
-{\fontsize{14.5}{17.4}\selectfont\rmfamily\bfseries\raggedright}% applied to label and text
+{\fontsize{14.5}{17.4}\selectfont\normalfont\bfseries\raggedright}% applied to label and text
 {\color{AccentOne}\thetitle}% applied to the label only
 {0.5em}% horizontal spacing between label and text
 {#1}% applied before the text
@@ -200,7 +221,7 @@ Scale=0.95]
 
 \titleformat{\subsubsection}%
 [hang]% shape
-{\fontsize{13}{15.6}\selectfont\rmfamily\bfseries\raggedright}% applied to label and text
+{\fontsize{13}{15.6}\selectfont\normalfont\bfseries\raggedright}% applied to label and text
 {\color{AccentOne}\thetitle}% applied to the label only
 {0.5em}% horizontal spacing between label and text
 {#1}% applied before the text
@@ -214,7 +235,7 @@ Scale=0.95]
 
 \titleformat{\paragraph}%
 [runin]% shape
-{\rmfamily\bfseries}% applied to label and text
+{\normalfont\bfseries}% applied to label and text
 {}% applied to the label only
 {0em}% horizontal spacing between label and text
 {#1.}% applied before the text
@@ -228,7 +249,7 @@ Scale=0.95]
 
 \titleformat{\subparagraph}%
 [runin]% shape
-{\rmfamily\bfseries\itshape}% applied to label and text
+{\normalfont\bfseries\itshape}% applied to label and text
 {}% applied to the label only
 {0em}% horizontal spacing between label and text
 {#1.}% applied before the text
@@ -403,9 +424,9 @@ Scale=0.95]
 \ifx\@captype\@figurestring
 \vskip1em
 \fi
-\sbox\@tempboxa{{\color{AccentOne}\rmfamily\bfseries\MakeUppercase{#1}\hspace{0.5em}}#2}%
+\sbox\@tempboxa{{\color{AccentOne}\normalfont\bfseries\MakeUppercase{#1}\hspace{0.5em}}#2}%
 \ifdim\wd\@tempboxa>\hsize
-{{\color{AccentOne}\rmfamily\bfseries\MakeUppercase{#1}\hspace{0.5em}}#2}%
+{{\color{AccentOne}\normalfont\bfseries\MakeUppercase{#1}\hspace{0.5em}}#2}%
 \else
 \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
 \fi
@@ -431,13 +452,13 @@ Scale=0.95]
 
 \patchcmd{\LT@makecaption}
 {\@tempboxa{#1{#2: }#3}}
-{\@tempboxa{#1{{\color{AccentOne}\rmfamily\bfseries\MakeUppercase{#2}\hspace{0.5em}}}#3}}
+{\@tempboxa{#1{{\color{AccentOne}\normalfont\bfseries\MakeUppercase{#2}\hspace{0.5em}}}#3}}
 {}
 {}
 
 \patchcmd{\LT@makecaption}
 {#1{#2: }#3}
-{#1{{\color{AccentOne}\rmfamily\bfseries\MakeUppercase{#2}\hspace{0.5em}}}#3}
+{#1{{\color{AccentOne}\normalfont\bfseries\MakeUppercase{#2}\hspace{0.5em}}}#3}
 {}
 {}
 
@@ -494,7 +515,7 @@ Scale=0.95]
 {}% theorem head font
 {}% punctuation after theorem head
 {0.5em}% space after theorem head
-{\rmfamily\bfseries{\color{AccentOne}\MakeUppercase{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (#3)}}% custom theorem head spec
+{\normalfont\bfseries{\color{AccentOne}\MakeUppercase{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (#3)}}% custom theorem head spec
 
 \newtheoremstyle{MyDefinition}%
 {0.4em}% space above
@@ -504,7 +525,7 @@ Scale=0.95]
 {}% theorem head font
 {}% punctuation after theorem head
 {0.5em}% space after theorem head
-{\rmfamily\bfseries{\color{AccentOne}\MakeUppercase{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (#3)}}% custom theorem head spec
+{\normalfont\bfseries{\color{AccentOne}\MakeUppercase{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (#3)}}% custom theorem head spec
 
 \theoremstyle{MyPlain}
 
@@ -551,7 +572,7 @@ Scale=0.95]
 % Proof.
 \renewenvironment{proof}[1][\proofname]{%
 {\par\vskip0.4em\noindent%
-\rmfamily\bfseries\itshape{#1:}%
+\normalfont\bfseries\itshape{#1:}%
 \hspace{0.5em}}}%
 {\nopagebreak\hspace*{\fill}~\mbox{\rule[0pt]{1.3ex}{1.3ex}}\par}
 

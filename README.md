@@ -36,7 +36,7 @@ run `make` to build the example.
 
 ```sh
 apt install texlive-latex-extra texlive-generic-extra texlive-xetex texlive-science \
-    texlive-publishers latexmk make
+    texlive-publishers msttcorefonts latexmk make
 make
 ```
 

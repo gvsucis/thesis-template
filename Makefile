@@ -1,7 +1,7 @@
 DOCNAME := Thesis
 OUTDIR := build
 
-SOURCES := $(wildcard *.tex) $(wildcard *.bib) $(wildcard Forms/*.pdf) gvsuthesis.cls
+SOURCES := $(wildcard *.tex) $(wildcard *.bib) $(wildcard Forms/*.pdf) $(wildcard *.cls)
 LATEX_OPTS := -xelatex -bibtex -outdir=$(OUTDIR) -halt-on-error -file-line-error
 
 .PHONY: all
