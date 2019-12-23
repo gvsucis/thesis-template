@@ -28,6 +28,9 @@ build there.
 The example CV comes from Illinois's graduate school's [CV
 samples](https://grad.illinois.edu/sites/default/files/pdfs/cvsamples.pdf).
 
+A prebuilt example of a thesis using this template is available at
+[Example/Thesis.pdf](Example/Thesis.pdf).
+
 ## Usage
 
 This template is designed to be copied into a subdirectory (perhaps as a submodule) from the main
