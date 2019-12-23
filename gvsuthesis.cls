@@ -23,6 +23,16 @@
 \newcommand{\TypesetInDraftMode}{0}
 \DeclareOption{draftmode}{\renewcommand{\TypesetInDraftMode}{1}}
 
+% Text spacing.
+\newcommand{\SpacingSetting}{\doublespacing}
+\DeclareOption{doublespacing}{\renewcommand{\SpacingSetting}{\doublespacing}}
+\DeclareOption{singlespacing}{\renewcommand{\SpacingSetting}{\singlespacing}}
+\DeclareOption{onehalfspacing}{\renewcommand{\SpacingSetting}{\onehalfspacing}}
+
+% Font family.
+\newcommand{\LiberationFonts}{1}
+\DeclareOption{useotherfonts}{\renewcommand{\LiberationFonts}{0}}
+
 \ProcessOptions\relax
 
 % Use report class as the base class.
@@ -77,6 +87,9 @@ footskip=0.5in] % footer skip, below text body
 \RequirePackage{xltxtra} % Extra customizations for XeLaTeX.
 \RequirePackage{lmodern} % For Latin Modern fonts.
 
+\ifnum\LiberationFonts=0
+\include{Fonts.cls}
+\else
 % Font: Main font, \textnormal{}, \normalfont.
 \setmainfont
 [Path=./Fonts/liberation-serif/,
@@ -112,6 +125,7 @@ BoldFont=LiberationMono-Bold,
 BoldItalicFont=LiberationMono-BoldItalic,
 Scale=0.95]
 {LiberationMono-Regular.ttf}
+\fi
 
 % Symbols.
 \RequirePackage{textcomp} % For symbols.
@@ -258,9 +272,7 @@ Scale=0.95]
 
 % Line spacing.
 \RequirePackage{setspace}
-%\singlespacing
-%\onehalfspacing
-\doublespacing
+\SpacingSetting
 %\setstretch{1.40} % custom
 
 % Paragraph indentation:
