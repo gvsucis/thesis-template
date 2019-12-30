@@ -74,6 +74,10 @@ footskip=0.5in] % footer skip, below text body
 % PDF settings and properties.
 \RequirePackage{hyperref}
 
+% Whether to include GVSU forms. Can be overriden in Thesis.tex.
+\newbool{IncludeForms}
+\booltrue{IncludeForms}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% COLORS.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

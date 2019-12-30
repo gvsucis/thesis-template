@@ -62,7 +62,9 @@ bookmarksnumbered}
 \pagestyle{plain}
 
 % Macros
-% These are only for the example content, and can be deleted %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vvv These macros are only for the example content, and can be deleted vvv %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \renewcommand{\binom}[2]{\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)}
@@ -70,10 +72,12 @@ bookmarksnumbered}
 \newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
 \DeclareMathOperator{\lcm}{lcm}
 \newcommand{\ZZ}{{\mathbb{Z}}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ^^^ These macros are only for the example content, and can be deleted ^^^ %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                            FRONT-MATTER SETUP
+%%                                                TEMPLATE SETUP
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % If not using, leave blank.
@@ -93,22 +97,27 @@ bookmarksnumbered}
 
 \begin{document}
 
-\input{Thesis-TitlePage.tex}
+% Front-matter:
+%   Title page
+%   Approval page
+%   Dedication
+%   Acknowledgements
+%   Preface
+%   Abstract
+%   TOCs
+\input{Thesis-FrontMatter.tex}
 
-\includepdf{Forms/ThesisApproval.pdf}
-\pagenumbering{arabic}
-\setcounter{page}{3}
-
-\input{Thesis-FrontMatter.tex} % Dedication, Acknowledgements, Preface, Abstract, TOCs, and Keys
-
+% Thesis chapters
 \input{Thesis-Chapter-Intro.tex}
 
 \input{Thesis-Chapter-ChapAbbr.tex}
 
 \input{Thesis-Chapter-Summary.tex}
 
-\input{Thesis-BackMatter.tex} % Bibliography and Vita
-
-\includepdf{Forms/ScholarWorksAgreement.pdf}
+% Back-matter:
+%   Bibliography
+%   Curriculum Vitae
+%   ScholarWorks Agreement
+\input{Thesis-BackMatter.tex}
 
 \end{document}

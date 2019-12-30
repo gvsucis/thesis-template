@@ -43,31 +43,31 @@ apt install texlive-latex-extra texlive-generic-extra texlive-xetex texlive-scie
 make
 ```
 
-When creating your own thesis, provide your own Thesis.tex, but use the template's TitlePage,
-FrontMatter, and BackMatter.
-
 ## Thesis Contents
 
-| **Page Name**                   | **Required**  | **Print page #** | **Page #** | Source     |
-| ------------------------------- | ------------- | ---------------- | ---------- | ---------- |
-| Title page                      | Yes           | No               | 1          | Template   |
-| Approval page                   | Yes           | No               | 2          | Form\*     |
-| Dedication page (limit 2 pages) | Optional      | Yes              | 3          | Template   |
-| Acknowledgments (limit 2 pages) | Optional      | Yes              | 3 or 4     | Template   |
-| Preface                         | Optional      | Yes              | (continue) | Template   |
-| Abstract (limit 350 words)      | Yes           | Yes              | (continue) | Template   |
-| Table of contents               | Yes           | Yes              | (continue) | Template   |
-| List of tables                  | If applicable | Yes              | (continue) | Template   |
-| List of figures                 | If applicable | Yes              | (continue) | Template   |
-| Key to symbols or abbreviations | If applicable | Yes              | (continue) | Template   |
-| Text and supplementary pages    | Yes           | Yes              | (continue) | Your files |
-| Appendices                      | If applicable | Yes              | (continue) | Your files |
-| Bibliography/References         | Yes           | Yes              | (continue) | Template   |
-| Vita                            | Optional      | Yes              | (continue) | Your files |
-| ScholarWorks@GVSU agreement     | Yes           | No               | NA         | Form\*     |
+| **Page Name**                   | **Required**  | **Print page #** | **Page #** | **Source Files**                                             |
+| ------------------------------- | ------------- | ---------------- | ---------- | ------------------------------------------------------------ |
+| Title page                      | Yes           | No               | 1          | Thesis-FrontMatter.tex                                       |
+| Approval page                   | Yes           | No               | 2          | Thesis-FrontMatter.tex, **Forms/ThesisApproval.pdf**\*       |
+| Dedication page (limit 2 pages) | Optional      | Yes              | 3          | Thesis-FrontMatter.tex                                       |
+| Acknowledgments (limit 2 pages) | Optional      | Yes              | 3 or 4     | Thesis-FrontMatter.tex                                       |
+| Preface                         | Optional      | Yes              | (continue) | Thesis-FrontMatter.tex                                       |
+| Abstract (limit 350 words)      | Yes           | Yes              | (continue) | Thesis-FrontMatter.tex                                       |
+| Table of contents               | Yes           | Yes              | (continue) | Thesis-FrontMatter.tex                                       |
+| List of tables                  | If applicable | Yes              | (continue) | Thesis-FrontMatter.tex                                       |
+| List of figures                 | If applicable | Yes              | (continue) | Thesis-FrontMatter.tex                                       |
+| Key to symbols or abbreviations | If applicable | Yes              | (continue) | **Thesis.tex**                                               |
+| Text and supplementary pages    | Yes           | Yes              | (continue) | **Thesis.tex**                                               |
+| Appendices                      | If applicable | Yes              | (continue) | **Thesis.tex**                                               |
+| Bibliography/References         | Yes           | Yes              | (continue) | Thesis-BackMatter.tex, **Thesis.bib**                        |
+| Vita                            | Optional      | Yes              | (continue) | Thesis-BackMatter.tex, **Forms/CurriculumVitae.pdf**         |
+| ScholarWorks@GVSU agreement     | Yes           | No               | NA         | Thesis-BackMatter.tex, **Forms/ScholarWorksAgreement.pdf**\* |
 
 \*Forms are available for download as Microsoft Word documents or PDF forms at GVSU's
 [website](https://www.gvsu.edu/gs/thesis-and-dissertation-information-35.htm).
+
+Source files emphasized in **bold** must be provided by the thesis author. Other files can be taken
+from the template with little or no modification.
 
 ## License
 
