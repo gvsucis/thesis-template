@@ -37,6 +37,18 @@
 \newcommand{\SansFonts}{0}
 \DeclareOption{sansfonts}{\renewcommand{\SansFonts}{1}}
 
+% Bibliography style.
+\newcommand{\Bibstyle}{IEEEtran}
+\newcommand{\Bibsettings}{IEEEfull}
+\DeclareOption{bibIEEEfull}{}
+\DeclareOption{bibIEEEabrv}{
+    \renewcommand{\Bibsettings}{IEEEabrv}
+}
+\DeclareOption{bibACM}{
+    \renewcommand{\Bibstyle}{acm}
+    \renewcommand{\Bibsettings}{\empty}
+}
+
 \ProcessOptions\relax
 
 % Use report class as the base class.

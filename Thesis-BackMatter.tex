@@ -6,9 +6,12 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
 
-\bibliographystyle{IEEEtran} % IEEE bibliographic/citation style.
-%\bibliography{IEEEabrv,Thesis}
-\bibliography{IEEEfull,Thesis}
+\bibliographystyle{\Bibstyle}
+\ifx\Bibsettings\empty
+    \bibliography{\Bibsettings,Thesis}
+\else
+    \bibliography{Thesis}
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                              CURRICULUM VITAE
