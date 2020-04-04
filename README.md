@@ -59,6 +59,7 @@ make
 | Key to symbols or abbreviations | If applicable | Yes              | (continue) | **Thesis.tex**                                               |
 | Text and supplementary pages    | Yes           | Yes              | (continue) | **Thesis.tex**                                               |
 | Appendices                      | If applicable | Yes              | (continue) | **Thesis.tex**                                               |
+| Glossary                        | Optional      | Yes              | (continue) | Thesis-BackMatter.tex, **Thesis-Glossary.tex**               |
 | Bibliography/References         | Yes           | Yes              | (continue) | Thesis-BackMatter.tex, **Thesis.bib**                        |
 | Vita                            | Optional      | Yes              | (continue) | Thesis-BackMatter.tex, **Forms/CurriculumVitae.pdf**         |
 | ScholarWorks@GVSU agreement     | Yes           | No               | NA         | Thesis-BackMatter.tex, **Forms/ScholarWorksAgreement.pdf**\* |

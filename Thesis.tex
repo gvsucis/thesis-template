@@ -32,6 +32,7 @@
 % Setup bools (\ifBoolName ... \fi)
 \newbool{HasListOfTables}
 \newbool{HasListOfFigures}
+\newbool{PrintGlossary} % Whether to include the glossary in the document
 \newbool{HasCurriculumVitae}
 
 % Document properties
@@ -90,7 +91,11 @@ bookmarksnumbered}
 % If not using, comment out
 \booltrue{HasListOfTables}
 \booltrue{HasListOfFigures}
+\booltrue{PrintGlossary}
 \booltrue{HasCurriculumVitae}
+
+% Setup glossary (glossary always exists; PrintGlossary is whether to include it in the document)
+\input{Thesis-Glossary.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                               ACTUAL DOCUMENT
@@ -109,13 +114,12 @@ bookmarksnumbered}
 \input{Thesis-FrontMatter.tex}
 
 % Thesis chapters
-\input{Thesis-Chapter-Intro.tex}
-
-\input{Thesis-Chapter-ChapAbbr.tex}
-
-\input{Thesis-Chapter-Summary.tex}
+\input{Thesis-Chapter1-Intro.tex}
+\input{Thesis-Chapter2-ChapAbbr.tex}
+\input{Thesis-Chapter3-Summary.tex}
 
 % Back-matter:
+%   Glossary
 %   Bibliography
 %   Curriculum Vitae
 %   ScholarWorks Agreement
