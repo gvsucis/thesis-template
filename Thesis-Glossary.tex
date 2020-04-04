@@ -2,9 +2,23 @@
 %%                                                       GLOSSARY
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Credit to https://www.overleaf.com/learn/latex/Glossaries for the example
+% Reference using the schema
+%
+%   \ac{}   -- general: abbreviation except first time is full
+%   \acs{}  -- short: abbreviation
+%   \acl{}  -- long: definition
+%   \acf{}  -- full: definition (abbreviation)
+%
+%   pluralization       -- append "p", e.g. \acp{}
+%   capitalize first    -- capitalize first of command, e.g. \Ac{}
+%   capitalize all      -- capitalize all of command, e.g. \AC{}
+%
+%   See page 85 of the documentation:
+%   http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/glossaries-extra/glossaries-extra-manual.pdf
 
 \makeglossaries
+
+% Credit to https://www.overleaf.com/learn/latex/Glossaries for the example
 
 \newglossaryentry{latex}{
     name=latex,
@@ -21,5 +35,5 @@
     description={A mathematical expression}
 }
 
-\newacronym{gcd}{GCD}{Greatest Common Divisor}
-\newacronym{lcm}{LCM}{Least Common Multiple}
+\newabbreviation{gcd}{GCD}{Greatest Common Divisor}
+\newabbreviation{lcm}{LCM}{Least Common Multiple}
