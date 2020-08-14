@@ -29,6 +29,11 @@
 \DeclareOption{singlespacing}{\renewcommand{\SpacingSetting}{\singlespacing}}
 \DeclareOption{onehalfspacing}{\renewcommand{\SpacingSetting}{\onehalfspacing}}
 
+% Text justification.
+\newcommand{\JustificationSetting}{\RaggedRight}
+\DeclareOption{RaggedRight}{\renewcommand{\JustificationSetting}{\RaggedRight}}
+\DeclareOption{justifying}{\renewcommand{\JustificationSetting}{\justifying}}
+
 % Font family.
 \newcommand{\LiberationFonts}{1}
 \DeclareOption{msfonts}{\renewcommand{\LiberationFonts}{0}}
@@ -315,9 +320,15 @@ footskip=0.5in] % footer skip, below text body
 %\setstretch{1.40} % custom
 
 % Paragraph indentation:
-% Indent first line of all paragraphs (including the first),
-% as in IEEE style.
+% Indent first line of all paragraphs (including the first), as in IEEE style.
 \let\@afterindentfalse\@afterindenttrue
+% \setlength\parindent{0.5in}
+
+% Justification.
+\RequirePackage{ragged2e}
+\RaggedRightParindent\parindent
+\JustifyingParindent\parindent
+\JustificationSetting
 
 % Indented blocks.
 \newcommand{\IndentBlock}[1]{\noindent\hangafter=0\hangindent=#1\parindent\ignorespaces}
