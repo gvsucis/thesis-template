@@ -1,41 +1,35 @@
 # GVSU Thesis Template
 
-This is a template for a Master of Computing and Information Systems thesis at Grand Valley State
-University.
+This is a template for a master's thesis at Grand Valley State University.
 
-This template is based on GVSU's 2019-20 thesis preparation guidelines. See the [Thesis and
-Dissertation Information](https://www.gvsu.edu/gs/thesis-and-dissertation-information-35.htm)
-website for the most up to date version of this information.
+This template is based on GVSU's 2020-21 thesis preparation guidelines. See the [Thesis and Dissertation
+Information](https://www.gvsu.edu/gs/thesis-and-dissertation-information-35.htm) website for the most up to date version
+of this information.
 
 ## Examples and Credit
 
-This template is forked from [this one](https://github.com/gvsucis/thesis-template) designed to
-build in the EOS Linux environment by [Sean Fisk](https://github.com/seanfisk). [Eric
-Domke](https://github.com/erdomke) ported it to Windows
+This template is forked from [this one](https://github.com/gvsucis/thesis-template) designed to build in the EOS Linux
+environment by [Sean Fisk](https://github.com/seanfisk). [Eric Domke](https://github.com/erdomke) ported it to Windows
 [here](https://github.com/erdomke/thesis-template).
 
 This template is adapted from [Zach Scrivena](https://github.com/zachscrivena)'s
-[Simple-Thesis-Dissertation](https://github.com/zachscrivena/simple-thesis-dissertation) and
-modified for GVSU's requirements. Although the content is primarily from here, the repo is forked
-from GVSU's template for discoverability.
+[Simple-Thesis-Dissertation](https://github.com/zachscrivena/simple-thesis-dissertation) and modified for GVSU's
+requirements. Although the content is primarily from here, the repo is forked from GVSU's template for discoverability.
 
-[Kevin Kredit](https://github.com/kkredit) designed this version of the template to work on Linux or
-the Windows Subsystem for Linux. It does not officially support the EOS environment, though it may
-build there.
+[Kevin Kredit](https://github.com/kkredit) designed this version of the template to work on Linux or the Windows
+Subsystem for Linux. It does not officially support the EOS environment, though it may build there.
 
 <!-- TODO: add a link to my thesis as soon as it's public -->
 
 The example CV comes from Illinois's graduate school's [CV
 samples](https://grad.illinois.edu/sites/default/files/pdfs/cvsamples.pdf).
 
-A prebuilt example of a thesis using this template is available at
-[Example/Thesis.pdf](Example/Thesis.pdf).
+A prebuilt example of a thesis using this template is available at [Example/Thesis.pdf](Example/Thesis.pdf).
 
 ## Usage
 
-This template is designed to be copied into a subdirectory (perhaps as a submodule) from the main
-thesis document. To build a document using this template, first install the following packages, then
-run `make` to build the example.
+This template is designed to be copied into a subdirectory (perhaps as a submodule) from the main thesis document. To
+build a document using this template, first install the following packages, then run `make` to build the example.
 
 ```sh
 apt install texlive-latex-extra texlive-generic-extra texlive-xetex texlive-science \
@@ -67,10 +61,10 @@ make
 \*Forms are available for download as Microsoft Word documents or PDF forms at GVSU's
 [website](https://www.gvsu.edu/gs/thesis-and-dissertation-information-35.htm).
 
-Source files emphasized in **bold** must be provided by the thesis author. Other files can be taken
-from the template with little or no modification.
+Source files emphasized in **bold** must be provided by the thesis author. Other files can be taken from the template
+with little or no modification.
 
 ## License
 
-This template is licensed under the LaTeX Project Public License v1.3c. See the [license](LICENSE)
-text for full details.
+This template is licensed under the LaTeX Project Public License v1.3c. See the [license](LICENSE) text for full
+details.
