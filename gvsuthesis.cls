@@ -85,6 +85,7 @@ footskip=0.5in] % footer skip, below text body
 \RequirePackage{etoolbox} % For declaration of bools.
 \RequirePackage[acronym,toc]{glossaries} % For glossary generation
 \RequirePackage[shortcuts=ac]{glossaries-extra} % For glossary generation, shortcuts
+\RequirePackage[hyphens]{url}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PDF OUTPUT.
