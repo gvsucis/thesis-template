@@ -83,7 +83,7 @@ footskip=0.5in] % footer skip, below text body
 \RequirePackage{framed} % For framed text.
 \RequirePackage{pdfpages} % Directly include PDFs
 \RequirePackage{etoolbox} % For declaration of bools.
-\RequirePackage[acronym,toc]{glossaries} % For glossary generation
+\RequirePackage[acronym,toc,nonumberlist]{glossaries} % For glossary generation
 \RequirePackage[shortcuts=ac]{glossaries-extra} % For glossary generation, shortcuts
 \RequirePackage[hyphens]{url}
 
