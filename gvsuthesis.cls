@@ -185,51 +185,51 @@ footskip=0.5in] % footer skip, below text body
 
 \titlespacing*{\part}%
 {0em}% left
-{8em}% vertical space before title
-{4em}% vertical space after title
+{0em}% vertical space before title
+{0em}% vertical space after title
 [0em]% right
 
 \titleformat{\part}
 [display]% shape
 {\normalfont\bfseries\filcenter}% applied to label and text
-{\fontsize{16}{19.2}\selectfont\color{AccentOne}PART~\thepart}% applied to the label only
+{\fontsize{12}{12}\selectfont\color{AccentOne}PART~\thepart}% applied to the label only
 {1em}% vertical spacing between label and text
-{\fontsize{32}{38.4}\selectfont{#1}}% applied before the text
+{\fontsize{12}{12}\selectfont{#1}}% applied before the text
 []% applied after the text
 
 \titleformat{name=\part,numberless}
 [display]% shape
 {\normalfont\bfseries\filcenter}% applied to label and text
-{\fontsize{16}{19.2}\selectfont\color{AccentOne}~}% applied to the label only
+{\fontsize{12}{12}\selectfont\color{AccentOne}~}% applied to the label only
 {1em}% vertical spacing between label and text
-{\fontsize{32}{38.4}\selectfont{#1}}% applied before the text
+{\fontsize{12}{12}\selectfont{#1}}% applied before the text
 []% applied after the text
 
 \titlespacing*{\chapter}%
 {0em}% left
-{5em}% vertical space before title
-{2em}% vertical space after title
+{-2em}% vertical space before title
+{1em}% vertical space after title
 [0em]% right
 
 \titleformat{\chapter}
 [display]% shape
 {\normalfont\bfseries\raggedright}% applied to label and text
-{\fontsize{17.5}{21}\selectfont\color{AccentOne}CHAPTER~\thechapter}% applied to the label only
-{0em}% vertical spacing between label and text
-{\fontsize{30}{36}\selectfont{#1}}% applied before the text
+{\fontsize{12}{12}\selectfont\color{AccentOne}CHAPTER~\thechapter}% applied to the label only
+{0.5em}% vertical spacing between label and text
+{\fontsize{12}{12}\selectfont{#1}}% applied before the text
 []% applied after the text
 
 \titleformat{name=\chapter,numberless}
-[display]% shape
-{\normalfont\bfseries\raggedright}% applied to label and text
-{\fontsize{17.5}{21}\selectfont\color{AccentOne}~}% applied to the label only
-{0em}% vertical spacing between label and text
-{\fontsize{30}{36}\selectfont{#1}}% applied before the text
+[block]% shape
+{\normalfont\bfseries\filcenter}% applied to label and text
+{\fontsize{12}{12}\selectfont\color{AccentOne}~}% applied to the label only
+{0.5em}% vertical spacing between label and text
+{\fontsize{12}{12}\selectfont{#1}}% applied before the text
 []% applied after the text
 
 \titleformat{\section}%
 [hang]% shape
-{\fontsize{17}{20.4}\selectfont\normalfont\bfseries\raggedright}% applied to label and text
+{\fontsize{12}{12}\selectfont\normalfont\bfseries\raggedright}% applied to label and text
 {\color{AccentOne}\thetitle}% applied to the label only
 {0.5em}% horizontal spacing between label and text
 {#1}% applied before the text
@@ -237,7 +237,7 @@ footskip=0.5in] % footer skip, below text body
 
 \titleformat{\subsection}%
 [hang]% shape
-{\fontsize{14.5}{17.4}\selectfont\normalfont\bfseries\raggedright}% applied to label and text
+{\fontsize{12}{12}\selectfont\normalfont\bfseries\raggedright}% applied to label and text
 {\color{AccentOne}\thetitle}% applied to the label only
 {0.5em}% horizontal spacing between label and text
 {#1}% applied before the text
@@ -245,7 +245,7 @@ footskip=0.5in] % footer skip, below text body
 
 \titleformat{\subsubsection}%
 [hang]% shape
-{\fontsize{13}{15.6}\selectfont\normalfont\bfseries\raggedright}% applied to label and text
+{\fontsize{12}{12}\selectfont\normalfont\bfseries\raggedright}% applied to label and text
 {\color{AccentOne}\thetitle}% applied to the label only
 {0.5em}% horizontal spacing between label and text
 {#1}% applied before the text
