@@ -1,0 +1,153 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                    TITLE PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% No headers or footers on the title page.
+\thispagestyle{empty}
+
+\begingroup
+\centering
+\doublespacing
+
+\DocumentTitle \\
+\AuthorFullName \\
+~\\[4.5\baselineskip]
+A Thesis Submitted to the Graduate Faculty of \\
+GRAND VALLEY STATE UNIVERSITY \\
+In \\
+Partial Fulfillment of the Requirements \\
+For the Degree of \\
+\Degree \\
+~\\
+\AcademicUnit \\
+~\\[4\baselineskip]
+\Month~\Year
+
+\endgroup
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                 APPROVAL PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifIncludeForms
+    \includepdf{Forms/ThesisApproval.pdf}
+    \pagenumbering{arabic}
+    \setcounter{page}{3}
+\else
+    % If not running an official GVSU build, make a stylistic change in page numbering
+    \pagenumbering{roman}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                               DEDICATION PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Page only present if \Dedication is non-empty.
+\ifx\Dedication\empty
+\else
+    \begingroup
+
+    \centering
+    \textbf{Dedication}
+
+    \flushleft
+    \Dedication
+
+    \endgroup
+    \clearpage
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                               ACKNOWLEDGMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Page only present if \Acknowledgements is non-empty.
+\ifx\Acknowledgements\empty
+\else
+    \begingroup
+
+    \centering
+    \textbf{Acknowledgments}
+
+    \flushleft
+    \Acknowledgements
+
+    \endgroup
+    \clearpage
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                       PREFACE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Page only present if \Preface is non-empty.
+\ifx\Preface\empty
+\else
+    \begingroup
+
+    \centering
+    \textbf{Preface}
+
+    \flushleft
+    \Preface
+
+    \endgroup
+    \clearpage
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                      ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Error out if \Abstract is empty.
+\ifx\Abstract\empty
+    \errmessage \Abstract must not be empty!
+\else
+    \begingroup
+
+    \centering
+    \textbf{Abstract}
+
+    \flushleft
+    \Abstract
+
+    \endgroup
+    \clearpage
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%       TABLE OF CONTENTS (TOC), LISTS OF TABLES, FIGURES, ETC.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% NOTE: the TOC does not meet GVSU's 2020-21 formatting guidelines. However, adjusting the rules here to meet the
+% guidelines would be complicated. Until I hear push-back, I will leave as-is. If the change is required, see
+% https://tex.stackexchange.com/questions/163986/format-table-of-contents-with-latex
+% \usepackage{titlesec}
+% \usepackage{titletoc}
+% \titlecontents{<section>}
+% []  % left margin
+% {}  % above code
+% {}  % numbered format
+% {}  % unnumbered format
+% {}  % filler-page-format, e.g dots
+
+\tableofcontents
+
+\ifHasListOfTables
+    \listoftables
+    \addcontentsline{toc}{chapter}{List of Tables}
+\fi
+
+\ifHasListOfFigures
+    \listoffigures
+    \addcontentsline{toc}{chapter}{List of Figures}
+\fi
+
+\clearpage
+
+\ifIncludeForms
+\else
+    % If not running an official GVSU build, make a stylistic change in page numbering
+    \pagenumbering{arabic}
+\fi

@@ -1,6 +1,0 @@
-Base Node
-Integer Node
-Successful cast to Integer Node
-Unsuccessful cast to Ident Node
-Integer Node
-Ident Node

@@ -1,5 +1,0 @@
-Pygments==2.0.2
-flake8==2.4.0
-mccabe==0.3
-pep8==1.5.7
-pyflakes==0.8.1

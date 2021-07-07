@@ -1,0 +1,129 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Thesis.tex
+%% <https://github.com/zachscrivena/simple-thesis-dissertation>
+%% This is free and unencumbered software released into the
+%% public domain; see <http://unlicense.org> for details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% See "README.md" for instructions on compiling this document.
+
+\documentclass[letterpaper,nonstopmode,draftmode,msfonts,bibACM]{gvsuthesis}
+% Class options:
+% [a4paper, letterpaper]
+% nonstopmode
+% draftmode
+% [*doublespacing*, singlespacing, onehalfspacing]
+% [*RaggedRight*, justifying]
+% msfonts
+% sansfonts
+% [*bibIEEEfull*, bibIEEEabrv, bibACM]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                      PREAMBLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Packages
+\usepackage{pdftexcmds}
+
+% Setup bools (\ifBoolName ... \fi)
+\newbool{HasListOfTables}
+\newbool{HasListOfFigures}
+\newbool{PrintGlossary} % Whether to include the glossary in the document
+\newbool{HasCurriculumVitae}
+
+% Document properties
+\def\DocumentTitle{Your Thesis Title}
+\def\AuthorName{Firstname Lastname}
+\def\AuthorFullName{Firstname Middlename Lastname}
+\def\Degree{Master of Science}
+\def\AcademicUnit{Applied Computer Science}
+\def\Year{2020}
+\def\Month{December}
+
+% PDF settings and properties
+\hypersetup{
+pdftitle={\DocumentTitle},
+pdfauthor={\AuthorName},
+pdfsubject={Master's Thesis, Grand Valley State University, 2020},
+pdfcreator={XeLaTeX},
+pdfproducer={},
+pdfkeywords={},
+unicode=true,
+bookmarks=true,
+bookmarksopen=true,
+pdfstartview=FitH,
+pdfpagelayout=OneColumn,
+pdfpagemode=UseOutlines,
+hidelinks,
+breaklinks,
+bookmarksnumbered}
+\pagestyle{plain}
+
+% Macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vvv These macros are only for the example content, and can be deleted vvv %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\renewcommand{\binom}[2]{\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)}
+\newcommand{\ceil}[1]{{\left\lceil{#1}\right\rceil}}
+\newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ^^^ These macros are only for the example content, and can be deleted ^^^ %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                TEMPLATE SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% If not using, leave blank.
+\def\Dedication{For Kramer, my loyal fish.}
+\def\Acknowledgements{I'd like to thank my advisors.}
+\def\Preface{}
+\def\Abstract{This is a thesis abstract.}
+
+% If not using, comment out
+\booltrue{HasListOfTables}
+\booltrue{HasListOfFigures}
+\booltrue{PrintGlossary}
+\booltrue{HasCurriculumVitae}
+
+% Setup glossary (glossary always exists; PrintGlossary is whether to include it in the document)
+\input{Thesis-Glossary.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                               ACTUAL DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Front-matter:
+%   Title page
+%   Approval page
+%   Dedication
+%   Acknowledgements
+%   Preface
+%   Abstract
+%   TOCs
+\input{Thesis-FrontMatter.tex}
+
+% Thesis chapters
+\input{Thesis-Chapter1-Intro.tex}
+\input{Thesis-Chapter2-ChapAbbr.tex}
+\input{Thesis-Chapter3-Summary.tex}
+
+% Back-matter:
+%   Glossary
+%   Bibliography
+%   Curriculum Vitae
+%   ScholarWorks Agreement
+\input{Thesis-BackMatter.tex}
+
+\end{document}
